@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.cloudstack;
+
 import static org.jclouds.cloudstack.config.CloudStackProperties.AUTO_GENERATE_KEYPAIRS;
 import static org.jclouds.reflect.Reflection2.typeToken;
 
@@ -23,12 +24,11 @@ import java.util.Properties;
 
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.cloudstack.compute.config.CloudStackComputeServiceContextModule;
-import org.jclouds.cloudstack.config.CloudStackParserModule;
 import org.jclouds.cloudstack.config.CloudStackHttpApiModule;
+import org.jclouds.cloudstack.config.CloudStackParserModule;
 import org.jclouds.rest.internal.BaseHttpApiMetadata;
 
 import com.google.common.collect.ImmutableSet;
-import com.google.common.reflect.TypeToken;
 import com.google.inject.Module;
 /**
  * Implementation of {@link ApiMetadata} for Citrix/Apache CloudStack api.

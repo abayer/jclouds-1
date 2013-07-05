@@ -38,9 +38,9 @@ import org.jclouds.openstack.swift.blobstore.functions.ContainerToResourceList;
 import org.jclouds.openstack.swift.blobstore.functions.ContainerToResourceMetadata;
 import org.jclouds.openstack.swift.blobstore.functions.ObjectToBlob;
 import org.jclouds.openstack.swift.blobstore.functions.ObjectToBlobMetadata;
+import org.jclouds.openstack.swift.blobstore.strategy.internal.MultipartUploadStrategy;
 
 import com.google.common.base.Supplier;
-import org.jclouds.openstack.swift.blobstore.strategy.internal.MultipartUploadStrategy;
 
 /**
  * 

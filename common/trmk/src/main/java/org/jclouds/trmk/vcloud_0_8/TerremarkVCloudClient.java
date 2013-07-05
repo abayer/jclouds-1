@@ -20,6 +20,7 @@ import java.io.Closeable;
 import java.net.URI;
 import java.util.Map;
 import java.util.Set;
+
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.trmk.vcloud_0_8.domain.Catalog;
 import org.jclouds.trmk.vcloud_0_8.domain.CatalogItem;

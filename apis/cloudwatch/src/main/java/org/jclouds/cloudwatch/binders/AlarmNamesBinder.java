@@ -18,9 +18,10 @@ package org.jclouds.cloudwatch.binders;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import org.jclouds.http.HttpRequest;
+
 import com.google.common.annotations.Beta;
 import com.google.common.collect.ImmutableMultimap;
-import org.jclouds.http.HttpRequest;
 
 /**
  * Binds the alarm names request to the http request

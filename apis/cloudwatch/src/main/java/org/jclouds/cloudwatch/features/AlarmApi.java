@@ -16,8 +16,6 @@
  */
 package org.jclouds.cloudwatch.features;
 
-import com.google.common.annotations.Beta;
-import com.google.common.collect.FluentIterable;
 import org.jclouds.cloudwatch.domain.Alarm;
 import org.jclouds.cloudwatch.domain.AlarmHistoryItem;
 import org.jclouds.cloudwatch.options.ListAlarmHistoryOptions;
@@ -27,6 +25,9 @@ import org.jclouds.cloudwatch.options.SaveAlarmOptions;
 import org.jclouds.collect.IterableWithMarker;
 import org.jclouds.collect.PagedIterable;
 import org.jclouds.javax.annotation.Nullable;
+
+import com.google.common.annotations.Beta;
+import com.google.common.collect.FluentIterable;
 
 /**
  * Provides access to Amazon CloudWatch via the Query API

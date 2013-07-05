@@ -17,14 +17,18 @@
 package org.jclouds.cloudstack.functions;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import com.google.common.cache.CacheLoader;
-import com.google.common.collect.ImmutableSet;
+
 import java.util.Set;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
 import org.jclouds.cloudstack.CloudStackApi;
 import org.jclouds.cloudstack.domain.FirewallRule;
 import org.jclouds.cloudstack.options.ListFirewallRulesOptions;
+
+import com.google.common.cache.CacheLoader;
+import com.google.common.collect.ImmutableSet;
 
 @Singleton
 public class GetFirewallRulesByVirtualMachine extends CacheLoader<String, Set<FirewallRule>> {

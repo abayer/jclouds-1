@@ -21,10 +21,10 @@ import static org.jclouds.ec2.options.DescribeSnapshotsOptions.Builder.restorabl
 import static org.jclouds.ec2.options.DescribeSnapshotsOptions.Builder.snapshotIds;
 import static org.testng.Assert.assertEquals;
 
-import com.google.common.collect.ImmutableList;
-
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of DescribeSnapshotsOptions and DescribeSnapshotsOptions.Builder.*

@@ -17,9 +17,9 @@
 package org.jclouds.sts.internal;
 
 import org.jclouds.date.DateService;
-import org.jclouds.sts.config.STSHttpApiModule;
 import org.jclouds.rest.ConfiguresHttpApi;
 import org.jclouds.rest.internal.BaseRestApiExpectTest;
+import org.jclouds.sts.config.STSHttpApiModule;
 
 import com.google.inject.Module;
 

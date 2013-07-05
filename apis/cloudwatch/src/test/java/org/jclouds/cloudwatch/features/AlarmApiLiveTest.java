@@ -21,11 +21,6 @@ import static org.jclouds.util.Predicates2.retry;
 
 import java.util.Date;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import org.jclouds.cloudwatch.domain.Alarm;
 import org.jclouds.cloudwatch.domain.AlarmHistoryItem;
 import org.jclouds.cloudwatch.domain.ComparisonOperator;
@@ -46,6 +41,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Predicate;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 /**
  * @author Jeremy Whitlock

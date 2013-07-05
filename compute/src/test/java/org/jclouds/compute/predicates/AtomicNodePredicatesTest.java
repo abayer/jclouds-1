@@ -23,16 +23,16 @@ import static org.easymock.EasyMock.verify;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-import com.google.common.util.concurrent.Atomics;
-
 import org.jclouds.compute.domain.NodeMetadata;
-import org.jclouds.compute.domain.NodeMetadataBuilder;
 import org.jclouds.compute.domain.NodeMetadata.Status;
+import org.jclouds.compute.domain.NodeMetadataBuilder;
 import org.jclouds.compute.strategy.GetNodeMetadataStrategy;
 import org.jclouds.domain.LoginCredentials;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.google.common.util.concurrent.Atomics;
 
 /**
  * Tests possible uses of NodePredicates

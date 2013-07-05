@@ -21,12 +21,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Set;
 
-import com.google.common.annotations.Beta;
 import org.jclouds.cloudwatch.domain.ComparisonOperator;
 import org.jclouds.cloudwatch.domain.Dimension;
 import org.jclouds.cloudwatch.domain.Statistics;
 import org.jclouds.cloudwatch.domain.Unit;
 import org.jclouds.http.options.BaseHttpRequestOptions;
+
+import com.google.common.annotations.Beta;
 
 /**
  * Options used to create/update an alarm.

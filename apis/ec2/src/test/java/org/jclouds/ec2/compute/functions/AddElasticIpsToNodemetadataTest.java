@@ -19,8 +19,8 @@ package org.jclouds.ec2.compute.functions;
 import static org.testng.Assert.assertEquals;
 
 import org.jclouds.compute.domain.NodeMetadata;
-import org.jclouds.compute.domain.NodeMetadataBuilder;
 import org.jclouds.compute.domain.NodeMetadata.Status;
+import org.jclouds.compute.domain.NodeMetadataBuilder;
 import org.jclouds.ec2.compute.domain.RegionAndName;
 import org.testng.annotations.Test;
 

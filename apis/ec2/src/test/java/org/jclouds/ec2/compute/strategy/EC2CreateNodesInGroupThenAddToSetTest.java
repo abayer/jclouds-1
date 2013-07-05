@@ -49,9 +49,9 @@ import org.jclouds.ec2.compute.functions.RunningInstanceToNodeMetadata;
 import org.jclouds.ec2.compute.options.EC2TemplateOptions;
 import org.jclouds.ec2.domain.Reservation;
 import org.jclouds.ec2.domain.RunningInstance;
-import org.jclouds.ec2.options.RunInstancesOptions;
 import org.jclouds.ec2.features.ElasticIPAddressApi;
 import org.jclouds.ec2.features.InstanceApi;
+import org.jclouds.ec2.options.RunInstancesOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

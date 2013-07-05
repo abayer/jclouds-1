@@ -16,11 +16,12 @@
  */
 package org.jclouds.cloudwatch.domain;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.Sets;
+import java.util.Set;
+
 import org.jclouds.javax.annotation.Nullable;
 
-import java.util.Set;
+import com.google.common.base.Objects;
+import com.google.common.collect.Sets;
 
 /**
  * @see <a href="http://docs.amazonwebservices.com/AmazonCloudWatch/latest/APIReference/API_Metric.html" />

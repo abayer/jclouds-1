@@ -17,6 +17,7 @@
 package org.jclouds.openstack.keystone.v2_0.features;
 
 import java.util.Set;
+
 import org.jclouds.collect.PagedIterable;
 import org.jclouds.openstack.keystone.v2_0.domain.PaginatedCollection;
 import org.jclouds.openstack.keystone.v2_0.domain.Role;

@@ -22,11 +22,11 @@ import java.util.Map;
 import java.util.Set;
 
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.AccessRuleWithId;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer.Status;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.Node;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.SSLTermination;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.SourceAddresses;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIPWithId;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer.Status;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.internal.BaseLoadBalancer;
 import org.jclouds.rackspace.cloudloadbalancers.v1.functions.ParseMetadata.CLBMetadata;
 

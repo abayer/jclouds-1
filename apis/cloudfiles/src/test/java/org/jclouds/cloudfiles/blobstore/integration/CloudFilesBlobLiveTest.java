@@ -16,14 +16,14 @@
  */
 package org.jclouds.cloudfiles.blobstore.integration;
 
-import org.jclouds.openstack.swift.blobstore.integration.SwiftBlobLiveTest;
-import org.jclouds.openstack.swift.extensions.TemporaryUrlKeyApi;
-import org.testng.annotations.Test;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 import java.util.UUID;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
+import org.jclouds.openstack.swift.blobstore.integration.SwiftBlobLiveTest;
+import org.jclouds.openstack.swift.extensions.TemporaryUrlKeyApi;
+import org.testng.annotations.Test;
 
 /**
  * @author Adrian Cole

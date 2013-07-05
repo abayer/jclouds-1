@@ -31,7 +31,6 @@ import org.jclouds.compute.domain.SecurityGroupBuilder;
 import org.jclouds.compute.reference.ComputeServiceConstants;
 import org.jclouds.domain.Location;
 import org.jclouds.logging.Logger;
-import org.jclouds.net.domain.IpPermission;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;

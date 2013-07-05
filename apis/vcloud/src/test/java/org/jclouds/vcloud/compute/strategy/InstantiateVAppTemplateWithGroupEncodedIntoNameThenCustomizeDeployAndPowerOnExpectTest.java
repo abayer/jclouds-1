@@ -21,6 +21,7 @@ import static org.testng.Assert.assertEquals;
 import java.net.URI;
 import java.util.Properties;
 
+import com.jamesmurty.utils.XMLBuilder;
 import org.jclouds.compute.ComputeService;
 import org.jclouds.compute.ComputeServiceAdapter.NodeAndInitialCredentials;
 import org.jclouds.compute.domain.Template;
@@ -35,7 +36,6 @@ import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.net.HttpHeaders;
-import com.jamesmurty.utils.XMLBuilder;
 
 /**
  * 

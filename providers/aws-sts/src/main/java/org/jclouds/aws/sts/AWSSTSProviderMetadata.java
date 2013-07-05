@@ -19,9 +19,9 @@ package org.jclouds.aws.sts;
 import java.net.URI;
 import java.util.Properties;
 
-import org.jclouds.sts.STSApiMetadata;
 import org.jclouds.providers.ProviderMetadata;
 import org.jclouds.providers.internal.BaseProviderMetadata;
+import org.jclouds.sts.STSApiMetadata;
 
 /**
  * Implementation of @ link org.jclouds.types.ProviderMetadata} for Amazon's STS

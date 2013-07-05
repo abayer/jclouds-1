@@ -23,12 +23,12 @@ import java.util.Map.Entry;
 
 import javax.inject.Singleton;
 
+import org.jclouds.dynect.v3.domain.GeoRegionGroup;
 import org.jclouds.dynect.v3.domain.GeoService;
 import org.jclouds.dynect.v3.domain.Node;
 import org.jclouds.dynect.v3.domain.RecordSet;
 import org.jclouds.dynect.v3.domain.RecordSet.Value;
 import org.jclouds.dynect.v3.domain.RecordSet.Value.Builder;
-import org.jclouds.dynect.v3.domain.GeoRegionGroup;
 import org.jclouds.dynect.v3.domain.SessionCredentials;
 
 import com.google.common.collect.ImmutableList;

@@ -18,19 +18,13 @@ package org.jclouds.openstack.nova.v2_0.compute.functions;
 
 import static com.google.common.collect.Iterables.transform;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
-import java.util.Set;
 
 import org.jclouds.compute.domain.SecurityGroup;
-import org.jclouds.compute.reference.ComputeServiceConstants;
-import org.jclouds.net.domain.IpPermission;
 import org.jclouds.net.domain.IpProtocol;
 import org.jclouds.openstack.nova.v2_0.domain.SecurityGroupRule;
 import org.jclouds.openstack.nova.v2_0.domain.TenantIdAndName;
 import org.testng.annotations.Test;
 
-import com.google.common.base.Supplier;
 import com.google.common.collect.ImmutableSet;
 
 /**

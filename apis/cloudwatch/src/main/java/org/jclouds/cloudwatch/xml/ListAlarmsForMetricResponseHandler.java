@@ -18,15 +18,16 @@ package org.jclouds.cloudwatch.xml;
 
 import java.util.Set;
 
-import com.google.common.annotations.Beta;
-import com.google.common.collect.FluentIterable;
-import com.google.common.collect.Sets;
-import com.google.inject.Inject;
 import org.jclouds.cloudwatch.domain.Alarm;
 import org.jclouds.http.functions.ParseSax;
 import org.jclouds.util.SaxUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+
+import com.google.common.annotations.Beta;
+import com.google.common.collect.FluentIterable;
+import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 /**
  * @see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html" />

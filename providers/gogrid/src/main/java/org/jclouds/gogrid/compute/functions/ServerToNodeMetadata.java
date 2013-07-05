@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.gogrid.compute.functions;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Map;
@@ -29,8 +30,8 @@ import org.jclouds.collect.Memoized;
 import org.jclouds.compute.domain.Hardware;
 import org.jclouds.compute.domain.Image;
 import org.jclouds.compute.domain.NodeMetadata;
-import org.jclouds.compute.domain.NodeMetadataBuilder;
 import org.jclouds.compute.domain.NodeMetadata.Status;
+import org.jclouds.compute.domain.NodeMetadataBuilder;
 import org.jclouds.compute.functions.GroupNamingConvention;
 import org.jclouds.domain.Location;
 import org.jclouds.gogrid.domain.Server;

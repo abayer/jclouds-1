@@ -26,14 +26,15 @@
 
 package org.jclouds.openstack.swift.blobstore.strategy.internal;
 
-import com.google.common.annotations.VisibleForTesting;
-import com.google.inject.Inject;
+import javax.annotation.Resource;
+import javax.inject.Named;
+
 import org.jclouds.blobstore.reference.BlobStoreConstants;
 import org.jclouds.logging.Logger;
 import org.jclouds.openstack.swift.blobstore.strategy.MultipartUpload;
 
-import javax.annotation.Resource;
-import javax.inject.Named;
+import com.google.common.annotations.VisibleForTesting;
+import com.google.inject.Inject;
 
 public class MultipartUploadSlicingAlgorithm {
 

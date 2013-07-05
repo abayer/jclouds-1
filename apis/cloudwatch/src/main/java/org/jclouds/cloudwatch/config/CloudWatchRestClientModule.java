@@ -16,7 +16,10 @@
  */
 package org.jclouds.cloudwatch.config;
 
-import com.google.common.collect.ImmutableMap;
+import static org.jclouds.reflect.Reflection2.typeToken;
+
+import java.util.Map;
+
 import org.jclouds.aws.config.FormSigningRestClientModule;
 import org.jclouds.cloudwatch.CloudWatchApi;
 import org.jclouds.cloudwatch.CloudWatchAsyncApi;
@@ -30,9 +33,7 @@ import org.jclouds.http.annotation.ClientError;
 import org.jclouds.http.annotation.ServerError;
 import org.jclouds.rest.ConfiguresRestClient;
 
-import java.util.Map;
-
-import static org.jclouds.reflect.Reflection2.typeToken;
+import com.google.common.collect.ImmutableMap;
 
 /**
  * Configures the Monitoring connection.

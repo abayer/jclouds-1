@@ -18,7 +18,6 @@ package org.jclouds.cloudstack.config;
 
 import static org.jclouds.rest.config.BinderUtils.bindHttpApi;
 
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.jclouds.Constants;
@@ -42,15 +41,14 @@ import org.jclouds.http.annotation.ServerError;
 import org.jclouds.location.Provider;
 import org.jclouds.location.suppliers.ImplicitLocationSupplier;
 import org.jclouds.location.suppliers.implicit.OnlyLocationOrFirstZone;
-import org.jclouds.rest.ConfiguresHttpApi;
 import org.jclouds.rest.ApiContext;
+import org.jclouds.rest.ConfiguresHttpApi;
 import org.jclouds.rest.config.HttpApiModule;
 import org.jclouds.rest.internal.ApiContextImpl;
 
 import com.google.common.base.Supplier;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
 import com.google.inject.Provides;
 import com.google.inject.Scopes;

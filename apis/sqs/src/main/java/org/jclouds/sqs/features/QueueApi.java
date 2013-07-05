@@ -18,6 +18,7 @@ package org.jclouds.sqs.features;
 
 import java.net.URI;
 import java.util.Map;
+
 import org.jclouds.sqs.domain.QueueAttributes;
 import org.jclouds.sqs.options.CreateQueueOptions;
 import org.jclouds.sqs.options.ListQueuesOptions;

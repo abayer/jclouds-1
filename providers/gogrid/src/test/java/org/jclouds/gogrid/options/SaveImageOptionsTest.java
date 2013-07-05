@@ -19,10 +19,10 @@ package org.jclouds.gogrid.options;
 import static org.jclouds.gogrid.options.SaveImageOptions.Builder.withDescription;
 import static org.testng.Assert.assertEquals;
 
-import com.google.common.collect.ImmutableList;
-
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of SaveImageOptions and SaveImageOptions.Builder.*

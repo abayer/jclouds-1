@@ -16,10 +16,9 @@
  */
 package org.jclouds.compute.domain;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import static com.google.common.base.CaseFormat.LOWER_HYPHEN;
 import static com.google.common.base.CaseFormat.UPPER_UNDERSCORE;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Running Operating system

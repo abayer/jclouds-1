@@ -16,11 +16,7 @@
  */
 package org.jclouds.openstack.nova.v2_0.compute.functions;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Iterables.transform;
-
-import java.util.NoSuchElementException;
-import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.inject.Named;
@@ -34,9 +30,6 @@ import org.jclouds.net.domain.IpPermission;
 import org.jclouds.openstack.nova.v2_0.domain.SecurityGroupRule;
 
 import com.google.common.base.Function;
-import com.google.common.base.Predicate;
-import com.google.common.base.Supplier;
-import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 
 

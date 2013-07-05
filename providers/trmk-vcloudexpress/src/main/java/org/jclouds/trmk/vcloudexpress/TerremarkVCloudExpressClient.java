@@ -17,6 +17,7 @@
 package org.jclouds.trmk.vcloudexpress;
 
 import java.net.URI;
+
 import org.jclouds.trmk.vcloud_0_8.TerremarkVCloudClient;
 import org.jclouds.trmk.vcloud_0_8.domain.InternetService;
 import org.jclouds.trmk.vcloud_0_8.domain.Protocol;

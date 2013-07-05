@@ -16,12 +16,12 @@
  */
 package org.jclouds.apis;
 
-import com.google.inject.Inject;
 import org.jclouds.Context;
 import org.jclouds.internal.BaseView;
 import org.jclouds.location.Provider;
 
 import com.google.common.reflect.TypeToken;
+import com.google.inject.Inject;
 
 /**
  * For tests

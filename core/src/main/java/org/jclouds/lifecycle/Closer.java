@@ -16,6 +16,10 @@
  */
 package org.jclouds.lifecycle;
 
+import static org.jclouds.lifecycle.Closer.State.AVAILABLE;
+import static org.jclouds.lifecycle.Closer.State.DONE;
+import static org.jclouds.lifecycle.Closer.State.PROCESSING;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Collections;
@@ -25,8 +29,6 @@ import java.util.concurrent.atomic.AtomicReference;
 import javax.inject.Singleton;
 
 import com.google.common.collect.Lists;
-
-import static org.jclouds.lifecycle.Closer.State.*;
 
 /**
  * This will close objects in the reverse order that they were added.

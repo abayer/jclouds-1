@@ -24,8 +24,8 @@ import static org.testng.Assert.assertEquals;
 
 import java.net.UnknownHostException;
 
-import org.jclouds.ec2.EC2ApiMetadata;
 import org.jclouds.ec2.EC2Api;
+import org.jclouds.ec2.EC2ApiMetadata;
 import org.jclouds.ec2.domain.KeyPair;
 import org.jclouds.ec2.features.KeyPairApi;
 import org.testng.annotations.Test;

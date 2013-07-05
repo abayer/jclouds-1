@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.ec2.features;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.jclouds.ec2.options.DescribeSnapshotsOptions.Builder.snapshotIds;
@@ -27,7 +28,6 @@ import java.util.SortedSet;
 
 import org.jclouds.compute.internal.BaseComputeServiceContextLiveTest;
 import org.jclouds.ec2.EC2Api;
-import org.jclouds.ec2.EC2ApiMetadata;
 import org.jclouds.ec2.domain.AvailabilityZoneInfo;
 import org.jclouds.ec2.domain.Snapshot;
 import org.jclouds.ec2.domain.Volume;

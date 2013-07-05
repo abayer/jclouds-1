@@ -16,8 +16,8 @@
  */
 package org.jclouds.rackspace.cloudidentity.v2_0.options;
 
-import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
 
 import org.jclouds.http.options.BaseHttpRequestOptions;
 

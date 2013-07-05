@@ -17,12 +17,10 @@
 package org.jclouds.ec2.compute.functions;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 import java.util.Set;
 
 import org.jclouds.compute.domain.SecurityGroup;
-import org.jclouds.compute.reference.ComputeServiceConstants;
 import org.jclouds.domain.Location;
 import org.jclouds.domain.LocationBuilder;
 import org.jclouds.domain.LocationScope;

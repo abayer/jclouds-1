@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.trmk.vcloud_0_8.compute.strategy;
+
 import static com.google.common.collect.Iterables.toArray;
 import static org.jclouds.compute.config.ComputeServiceProperties.BLACKLIST_NODES;
 import static org.jclouds.compute.predicates.NodePredicates.all;
@@ -46,7 +47,6 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Supplier;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 

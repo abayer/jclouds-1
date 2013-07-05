@@ -18,14 +18,15 @@ package org.jclouds.cloudwatch.functions;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import com.google.common.annotations.Beta;
-import com.google.common.base.Function;
-import com.google.inject.Inject;
 import org.jclouds.cloudwatch.CloudWatchApi;
 import org.jclouds.cloudwatch.domain.AlarmHistoryItem;
 import org.jclouds.cloudwatch.features.AlarmApi;
 import org.jclouds.collect.IterableWithMarker;
 import org.jclouds.collect.internal.CallerArg0ToPagedIterable;
+
+import com.google.common.annotations.Beta;
+import com.google.common.base.Function;
+import com.google.inject.Inject;
 
 /**
  * @author Jeremy Whitlock

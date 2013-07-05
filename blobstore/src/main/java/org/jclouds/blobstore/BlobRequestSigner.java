@@ -16,12 +16,12 @@
  */
 package org.jclouds.blobstore;
 
-import com.google.common.annotations.Beta;
 import org.jclouds.blobstore.domain.Blob;
 import org.jclouds.blobstore.internal.RequestSigningUnsupported;
 import org.jclouds.blobstore.options.GetOptions;
 import org.jclouds.http.HttpRequest;
 
+import com.google.common.annotations.Beta;
 import com.google.inject.ImplementedBy;
 
 /**

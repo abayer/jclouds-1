@@ -16,10 +16,11 @@
  */
 package org.jclouds.openstack.swift.blobstore.config;
 
-import static org.jclouds.rest.config.BinderUtils.bindSyncToAsyncHttpApi;
 import static org.jclouds.Constants.PROPERTY_SESSION_INTERVAL;
+import static org.jclouds.rest.config.BinderUtils.bindSyncToAsyncHttpApi;
 
 import java.util.concurrent.TimeUnit;
+
 import javax.inject.Singleton;
 
 import org.jclouds.blobstore.BlobRequestSigner;
@@ -38,9 +39,9 @@ import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import com.google.inject.Provides;
 import com.google.inject.TypeLiteral;
+import com.google.inject.name.Named;
 
 /**
  * Isolates dependencies needed for {@link SwiftBlobSigner}

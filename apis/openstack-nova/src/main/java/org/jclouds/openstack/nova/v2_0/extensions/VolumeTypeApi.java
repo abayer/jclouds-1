@@ -17,6 +17,7 @@
 package org.jclouds.openstack.nova.v2_0.extensions;
 
 import java.util.Map;
+
 import org.jclouds.openstack.nova.v2_0.domain.VolumeType;
 import org.jclouds.openstack.nova.v2_0.options.CreateVolumeTypeOptions;
 import org.jclouds.openstack.v2_0.ServiceType;

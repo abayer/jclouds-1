@@ -22,10 +22,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Maps;
 import org.jclouds.cloudwatch.CloudWatchApi;
 import org.jclouds.cloudwatch.domain.Alarm;
 import org.jclouds.cloudwatch.domain.ComparisonOperator;
@@ -50,6 +46,11 @@ import org.jclouds.io.Payload;
 import org.jclouds.rest.InsufficientResourcesException;
 import org.jclouds.rest.ResourceNotFoundException;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Maps;
 
 /**
  * @author Jeremy Whitlock

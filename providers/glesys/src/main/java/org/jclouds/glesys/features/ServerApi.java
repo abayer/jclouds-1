@@ -17,6 +17,7 @@
 package org.jclouds.glesys.features;
 
 import java.util.Map;
+
 import org.jclouds.glesys.domain.AllowedArgumentsForCreateServer;
 import org.jclouds.glesys.domain.Console;
 import org.jclouds.glesys.domain.OSTemplate;
@@ -29,8 +30,8 @@ import org.jclouds.glesys.domain.ServerStatus;
 import org.jclouds.glesys.options.CloneServerOptions;
 import org.jclouds.glesys.options.CreateServerOptions;
 import org.jclouds.glesys.options.DestroyServerOptions;
-import org.jclouds.glesys.options.UpdateServerOptions;
 import org.jclouds.glesys.options.ServerStatusOptions;
+import org.jclouds.glesys.options.UpdateServerOptions;
 
 import com.google.common.annotations.Beta;
 import com.google.common.collect.FluentIterable;

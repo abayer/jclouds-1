@@ -16,16 +16,17 @@
  */
 package org.jclouds.cloudwatch.options;
 
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.util.Set;
+
 import org.jclouds.aws.util.AWSUtils;
 import org.jclouds.cloudwatch.domain.Dimension;
 import org.jclouds.cloudwatch.domain.Unit;
 import org.jclouds.http.options.BaseHttpRequestOptions;
 
-import java.util.Set;
-
-import static com.google.common.base.Preconditions.checkNotNull;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 
 /**
  * Options used to control metric statistics are returned

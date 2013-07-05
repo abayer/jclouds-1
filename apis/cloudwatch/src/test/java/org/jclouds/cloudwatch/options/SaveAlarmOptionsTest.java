@@ -21,14 +21,15 @@ import static org.testng.Assert.assertFalse;
 
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
 import org.jclouds.cloudwatch.domain.ComparisonOperator;
 import org.jclouds.cloudwatch.domain.Dimension;
 import org.jclouds.cloudwatch.domain.Namespaces;
 import org.jclouds.cloudwatch.domain.Statistics;
 import org.jclouds.cloudwatch.domain.Unit;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 
 /**
  * Tests behavior of {@code SaveAlarmOptions}.

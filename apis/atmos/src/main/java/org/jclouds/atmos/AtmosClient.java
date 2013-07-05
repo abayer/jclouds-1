@@ -18,6 +18,7 @@ package org.jclouds.atmos;
 
 import java.io.Closeable;
 import java.net.URI;
+
 import org.jclouds.atmos.domain.AtmosObject;
 import org.jclouds.atmos.domain.BoundedSet;
 import org.jclouds.atmos.domain.DirectoryEntry;

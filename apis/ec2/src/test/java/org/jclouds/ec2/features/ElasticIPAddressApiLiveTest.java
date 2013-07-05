@@ -23,8 +23,6 @@ import java.util.SortedSet;
 
 import org.jclouds.compute.internal.BaseComputeServiceContextLiveTest;
 import org.jclouds.ec2.EC2Api;
-import org.jclouds.ec2.EC2ApiMetadata;
-import org.jclouds.ec2.compute.EC2ComputeServiceContext;
 import org.jclouds.ec2.domain.PublicIpInstanceIdPair;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

@@ -16,9 +16,8 @@
  */
 package org.jclouds.aws.sts;
 
-import org.jclouds.aws.sts.AWSSTSProviderMetadata;
-import org.jclouds.sts.STSApiMetadata;
 import org.jclouds.providers.internal.BaseProviderMetadataTest;
+import org.jclouds.sts.STSApiMetadata;
 import org.testng.annotations.Test;
 
 /**

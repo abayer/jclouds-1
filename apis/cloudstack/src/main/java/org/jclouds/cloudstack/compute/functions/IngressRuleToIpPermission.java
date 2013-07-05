@@ -19,8 +19,8 @@ package org.jclouds.cloudstack.compute.functions;
 import javax.annotation.Resource;
 import javax.inject.Named;
 
-import org.jclouds.compute.reference.ComputeServiceConstants;
 import org.jclouds.cloudstack.domain.IngressRule;
+import org.jclouds.compute.reference.ComputeServiceConstants;
 import org.jclouds.logging.Logger;
 import org.jclouds.net.domain.IpPermission;
 import org.jclouds.net.domain.IpProtocol;

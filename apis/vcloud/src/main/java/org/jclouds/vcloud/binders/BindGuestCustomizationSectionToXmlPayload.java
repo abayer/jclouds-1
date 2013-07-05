@@ -27,6 +27,7 @@ import javax.annotation.Resource;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.jamesmurty.utils.XMLBuilder;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.logging.Logger;
 import org.jclouds.rest.binders.BindToStringPayload;
@@ -34,7 +35,6 @@ import org.jclouds.vcloud.domain.GuestCustomizationSection;
 
 import com.google.common.base.Throwables;
 import com.google.inject.Inject;
-import com.jamesmurty.utils.XMLBuilder;
 
 /**
  * 

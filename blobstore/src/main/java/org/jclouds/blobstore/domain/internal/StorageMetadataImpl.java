@@ -22,13 +22,13 @@ import java.net.URI;
 import java.util.Date;
 import java.util.Map;
 
-import com.google.common.base.Objects;
-
 import org.jclouds.blobstore.domain.StorageMetadata;
 import org.jclouds.blobstore.domain.StorageType;
 import org.jclouds.domain.Location;
 import org.jclouds.domain.internal.ResourceMetadataImpl;
 import org.jclouds.javax.annotation.Nullable;
+
+import com.google.common.base.Objects;
 
 /**
  * Idpayload of the object

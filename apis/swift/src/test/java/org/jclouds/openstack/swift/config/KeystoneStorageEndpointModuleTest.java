@@ -17,9 +17,8 @@
 package org.jclouds.openstack.swift.config;
 
 import static org.easymock.EasyMock.createStrictMock;
-import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.expect;
-
+import static org.easymock.EasyMock.replay;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertNull;

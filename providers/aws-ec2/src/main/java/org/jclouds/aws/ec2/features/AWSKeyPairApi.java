@@ -25,8 +25,8 @@ import javax.ws.rs.Path;
 
 import org.jclouds.aws.filters.FormSigner;
 import org.jclouds.ec2.domain.KeyPair;
-import org.jclouds.ec2.functions.EncodedRSAPublicKeyToBase64;
 import org.jclouds.ec2.features.KeyPairApi;
+import org.jclouds.ec2.functions.EncodedRSAPublicKeyToBase64;
 import org.jclouds.ec2.xml.KeyPairResponseHandler;
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.location.functions.RegionToEndpointOrProviderIfNull;

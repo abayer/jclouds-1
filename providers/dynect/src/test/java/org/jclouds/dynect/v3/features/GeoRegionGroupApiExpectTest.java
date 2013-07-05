@@ -24,8 +24,8 @@ import static org.testng.Assert.assertEquals;
 
 import org.jclouds.dynect.v3.DynECTApi;
 import org.jclouds.dynect.v3.internal.BaseDynECTApiExpectTest;
-import org.jclouds.dynect.v3.parse.ListGeoRegionGroupsResponseTest;
 import org.jclouds.dynect.v3.parse.GetGeoRegionGroupResponseTest;
+import org.jclouds.dynect.v3.parse.ListGeoRegionGroupsResponseTest;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.http.HttpResponse;
 import org.testng.annotations.Test;

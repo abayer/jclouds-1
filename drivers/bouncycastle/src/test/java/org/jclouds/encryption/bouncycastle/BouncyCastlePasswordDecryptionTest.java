@@ -35,12 +35,10 @@ import org.jclouds.crypto.Crypto;
 import org.jclouds.crypto.Pems;
 import org.jclouds.date.DateService;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
-import org.jclouds.encryption.bouncycastle.BouncyCastleCrypto;
 import org.jclouds.encryption.internal.JCECrypto;
 import org.testng.annotations.Test;
 
 import com.google.common.base.Charsets;
-import com.google.inject.Guice;
 
 /**
  * @author Barak Merimovich.

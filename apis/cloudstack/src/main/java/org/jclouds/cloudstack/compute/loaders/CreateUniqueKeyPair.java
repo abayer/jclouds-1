@@ -16,21 +16,17 @@
  */
 package org.jclouds.cloudstack.compute.loaders;
 
-import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import javax.annotation.Resource;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import org.jclouds.cloudstack.CloudStackApi;
+import org.jclouds.cloudstack.domain.SshKeyPair;
 import org.jclouds.compute.reference.ComputeServiceConstants;
 import org.jclouds.logging.Logger;
-import org.jclouds.cloudstack.CloudStackApi;
-import org.jclouds.cloudstack.domain.AsyncCreateResponse;
-import org.jclouds.cloudstack.domain.SshKeyPair;
-import org.jclouds.cloudstack.strategy.BlockUntilJobCompletesAndReturnResult;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Throwables;
 import com.google.common.cache.CacheLoader;
 import com.google.inject.Inject;

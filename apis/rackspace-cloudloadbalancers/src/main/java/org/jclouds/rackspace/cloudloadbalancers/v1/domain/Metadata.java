@@ -16,11 +16,12 @@
  */
 package org.jclouds.rackspace.cloudloadbalancers.v1.domain;
 
+import static com.google.common.collect.Maps.newHashMap;
+import static com.google.common.collect.Sets.newHashSet;
+
 import java.util.Map;
 
 import com.google.common.collect.ForwardingMap;
-import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.collect.Sets.newHashSet;
 
 /**
  * Key and value must be 256 characters or less. All UTF-8 characters are valid.

@@ -16,10 +16,11 @@
  */
 package org.jclouds.cloudwatch.domain;
 
-import com.google.common.base.Objects;
+import java.util.Date;
+
 import org.jclouds.javax.annotation.Nullable;
 
-import java.util.Date;
+import com.google.common.base.Objects;
 
 /**
  * @see <a href="http://docs.amazonwebservices.com/AmazonCloudWatch/latest/APIReference?DT_Datapoint.html"

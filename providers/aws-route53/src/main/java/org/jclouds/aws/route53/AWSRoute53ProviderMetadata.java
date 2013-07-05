@@ -19,9 +19,9 @@ package org.jclouds.aws.route53;
 import java.net.URI;
 import java.util.Properties;
 
-import org.jclouds.route53.Route53ApiMetadata;
 import org.jclouds.providers.ProviderMetadata;
 import org.jclouds.providers.internal.BaseProviderMetadata;
+import org.jclouds.route53.Route53ApiMetadata;
 
 /**
  * Implementation of @ link org.jclouds.types.ProviderMetadata} for Amazon's Route53

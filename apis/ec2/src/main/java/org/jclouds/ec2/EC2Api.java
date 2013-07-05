@@ -18,9 +18,7 @@ package org.jclouds.ec2;
 
 import java.io.Closeable;
 import java.util.Set;
-import org.jclouds.ec2.features.SubnetApi;
-import org.jclouds.ec2.features.TagApi;
-import org.jclouds.ec2.features.WindowsApi;
+
 import org.jclouds.ec2.features.AMIApi;
 import org.jclouds.ec2.features.AvailabilityZoneAndRegionApi;
 import org.jclouds.ec2.features.ElasticBlockStoreApi;
@@ -28,6 +26,9 @@ import org.jclouds.ec2.features.ElasticIPAddressApi;
 import org.jclouds.ec2.features.InstanceApi;
 import org.jclouds.ec2.features.KeyPairApi;
 import org.jclouds.ec2.features.SecurityGroupApi;
+import org.jclouds.ec2.features.SubnetApi;
+import org.jclouds.ec2.features.TagApi;
+import org.jclouds.ec2.features.WindowsApi;
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.location.Region;
 import org.jclouds.location.functions.RegionToEndpointOrProviderIfNull;

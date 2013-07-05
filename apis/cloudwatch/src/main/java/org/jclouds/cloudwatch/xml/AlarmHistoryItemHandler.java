@@ -16,16 +16,18 @@
  */
 package org.jclouds.cloudwatch.xml;
 
-import javax.inject.Inject;
 import java.util.Date;
 
-import com.google.common.annotations.Beta;
+import javax.inject.Inject;
+
 import org.jclouds.cloudwatch.domain.AlarmHistoryItem;
 import org.jclouds.cloudwatch.domain.HistoryItemType;
 import org.jclouds.date.DateService;
 import org.jclouds.http.functions.ParseSax;
 import org.jclouds.util.SaxUtils;
 import org.xml.sax.SAXException;
+
+import com.google.common.annotations.Beta;
 
 /**
  * @see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AlarmHistoryItem.html" />

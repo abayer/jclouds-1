@@ -19,9 +19,9 @@ package org.jclouds.dynect.v3.parse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 
+import org.jclouds.dynect.v3.domain.GeoRegionGroup;
 import org.jclouds.dynect.v3.domain.RecordSet;
 import org.jclouds.dynect.v3.domain.RecordSet.Value;
-import org.jclouds.dynect.v3.domain.GeoRegionGroup;
 import org.jclouds.dynect.v3.internal.BaseDynECTParseTest;
 import org.jclouds.rest.annotations.SelectJson;
 import org.testng.annotations.Test;

@@ -17,6 +17,7 @@
 package org.jclouds.gogrid.services;
 
 import java.util.Set;
+
 import org.jclouds.gogrid.domain.Ip;
 import org.jclouds.gogrid.domain.Option;
 import org.jclouds.gogrid.options.GetIpListOptions;

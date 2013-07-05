@@ -23,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.parsers.FactoryConfigurationError;
 import javax.xml.parsers.ParserConfigurationException;
 
+import com.jamesmurty.utils.XMLBuilder;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.rest.Binder;
 import org.jclouds.s3.domain.AccessControlList.CanonicalUserGrantee;
@@ -33,7 +34,6 @@ import org.jclouds.s3.domain.BucketLogging;
 import org.jclouds.s3.reference.S3Constants;
 
 import com.google.common.base.Throwables;
-import com.jamesmurty.utils.XMLBuilder;
 
 /**
  * 

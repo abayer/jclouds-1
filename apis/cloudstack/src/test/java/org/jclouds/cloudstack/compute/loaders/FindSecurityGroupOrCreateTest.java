@@ -17,16 +17,16 @@
 package org.jclouds.cloudstack.compute.loaders;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.jclouds.Constants.PROPERTY_SESSION_INTERVAL;
-import static org.jclouds.util.Predicates2.retry;
-
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
+import static org.jclouds.Constants.PROPERTY_SESSION_INTERVAL;
+import static org.jclouds.util.Predicates2.retry;
 import static org.testng.Assert.assertEquals;
 
 import java.net.UnknownHostException;
+
 import javax.inject.Singleton;
 
 import org.jclouds.cloudstack.CloudStackApi;

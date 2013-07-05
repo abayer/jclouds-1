@@ -16,6 +16,14 @@
  */
 package org.jclouds.openstack.keystone.v2_0.parse;
 
+import static org.jclouds.openstack.v2_0.ServiceType.BLOCK_STORAGE;
+import static org.jclouds.openstack.v2_0.ServiceType.COMPUTE;
+import static org.jclouds.openstack.v2_0.ServiceType.DATABASE_SERVICE;
+import static org.jclouds.openstack.v2_0.ServiceType.IDENTITY;
+import static org.jclouds.openstack.v2_0.ServiceType.IMAGE;
+import static org.jclouds.openstack.v2_0.ServiceType.NETWORK;
+import static org.jclouds.openstack.v2_0.ServiceType.OBJECT_STORE;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 
@@ -30,14 +38,6 @@ import org.jclouds.openstack.keystone.v2_0.domain.Token;
 import org.jclouds.openstack.keystone.v2_0.domain.User;
 import org.jclouds.rest.annotations.SelectJson;
 import org.testng.annotations.Test;
-
-import static org.jclouds.openstack.v2_0.ServiceType.BLOCK_STORAGE;
-import static org.jclouds.openstack.v2_0.ServiceType.COMPUTE;
-import static org.jclouds.openstack.v2_0.ServiceType.DATABASE_SERVICE;
-import static org.jclouds.openstack.v2_0.ServiceType.IDENTITY;
-import static org.jclouds.openstack.v2_0.ServiceType.IMAGE;
-import static org.jclouds.openstack.v2_0.ServiceType.NETWORK;
-import static org.jclouds.openstack.v2_0.ServiceType.OBJECT_STORE;
 
 
 /**

@@ -16,8 +16,8 @@
  */
 package org.jclouds.sts.options;
 
-import static org.jclouds.sts.options.AssumeRoleOptions.Builder.externalId;
 import static org.jclouds.sts.options.AssumeRoleOptions.Builder.durationSeconds;
+import static org.jclouds.sts.options.AssumeRoleOptions.Builder.externalId;
 import static org.jclouds.sts.options.AssumeRoleOptions.Builder.policy;
 import static org.testng.Assert.assertEquals;
 

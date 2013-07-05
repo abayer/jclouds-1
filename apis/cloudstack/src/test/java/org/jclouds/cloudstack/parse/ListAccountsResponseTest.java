@@ -19,9 +19,9 @@ package org.jclouds.cloudstack.parse;
 import java.util.Set;
 
 import org.jclouds.cloudstack.domain.Account;
-import org.jclouds.cloudstack.domain.User;
 import org.jclouds.cloudstack.domain.Account.State;
 import org.jclouds.cloudstack.domain.Account.Type;
+import org.jclouds.cloudstack.domain.User;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
 import org.jclouds.json.BaseSetParserTest;
 import org.jclouds.json.config.GsonModule;

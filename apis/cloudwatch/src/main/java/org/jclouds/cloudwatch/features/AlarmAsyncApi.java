@@ -21,9 +21,6 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-import com.google.common.annotations.Beta;
-import com.google.common.collect.FluentIterable;
-import com.google.common.util.concurrent.ListenableFuture;
 import org.jclouds.Fallbacks;
 import org.jclouds.aws.filters.FormSigner;
 import org.jclouds.cloudwatch.binders.AlarmNamesBinder;
@@ -47,6 +44,10 @@ import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.Transform;
 import org.jclouds.rest.annotations.VirtualHost;
 import org.jclouds.rest.annotations.XMLResponseParser;
+
+import com.google.common.annotations.Beta;
+import com.google.common.collect.FluentIterable;
+import com.google.common.util.concurrent.ListenableFuture;
 
 /**
  * Provides access to Amazon CloudWatch via the Query API

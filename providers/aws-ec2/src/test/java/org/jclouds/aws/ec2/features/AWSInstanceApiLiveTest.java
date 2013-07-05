@@ -21,7 +21,6 @@ import static org.testng.Assert.assertNotNull;
 import java.util.Set;
 
 import org.jclouds.aws.ec2.AWSEC2Api;
-import org.jclouds.aws.ec2.AWSEC2ApiMetadata;
 import org.jclouds.compute.internal.BaseComputeServiceContextLiveTest;
 import org.jclouds.ec2.domain.Reservation;
 import org.jclouds.ec2.domain.RunningInstance;

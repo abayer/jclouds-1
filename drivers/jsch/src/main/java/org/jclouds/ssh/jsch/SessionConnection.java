@@ -20,6 +20,11 @@ import static com.google.common.base.Objects.equal;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Proxy;
+import com.jcraft.jsch.ProxyHTTP;
+import com.jcraft.jsch.ProxySOCKS5;
+import com.jcraft.jsch.Session;
 import org.jclouds.domain.Credentials;
 import org.jclouds.domain.LoginCredentials;
 import org.jclouds.javax.annotation.Nullable;
@@ -29,11 +34,6 @@ import org.jclouds.ssh.jsch.JschSshClient.Connection;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.net.HostAndPort;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.Proxy;
-import com.jcraft.jsch.ProxyHTTP;
-import com.jcraft.jsch.ProxySOCKS5;
-import com.jcraft.jsch.Session;
 
 public final class SessionConnection implements Connection<Session> {
    public static Builder builder() {
