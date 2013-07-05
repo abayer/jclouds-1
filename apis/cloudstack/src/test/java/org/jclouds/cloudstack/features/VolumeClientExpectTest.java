@@ -16,6 +16,12 @@
  */
 package org.jclouds.cloudstack.features;
 
+import static org.testng.Assert.assertNotNull;
+
+import java.net.URI;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+
 import org.jclouds.cloudstack.CloudStackApiMetadata;
 import org.jclouds.cloudstack.CloudStackContext;
 import org.jclouds.cloudstack.domain.AsyncCreateResponse;
@@ -23,12 +29,6 @@ import org.jclouds.cloudstack.internal.BaseCloudStackExpectTest;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.http.HttpResponse;
 import org.testng.annotations.Test;
-
-import java.net.URI;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-
-import static org.testng.Assert.assertNotNull;
 
 /**
 * Test the CloudStack VolumeClient

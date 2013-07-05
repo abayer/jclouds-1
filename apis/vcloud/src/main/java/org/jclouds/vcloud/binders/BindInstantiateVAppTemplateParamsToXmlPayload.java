@@ -34,6 +34,7 @@ import javax.xml.parsers.FactoryConfigurationError;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import com.jamesmurty.utils.XMLBuilder;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.rest.MapBinder;
@@ -52,7 +53,6 @@ import com.google.common.base.Function;
 import com.google.common.base.Supplier;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableSet;
-import com.jamesmurty.utils.XMLBuilder;
 
 /**
  * 

@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.route53.features;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.lang.String.format;
 import static java.util.logging.Logger.getAnonymousLogger;
@@ -27,8 +28,8 @@ import java.util.Date;
 
 import org.jclouds.JcloudsVersion;
 import org.jclouds.route53.domain.Change;
-import org.jclouds.route53.domain.NewHostedZone;
 import org.jclouds.route53.domain.HostedZone;
+import org.jclouds.route53.domain.NewHostedZone;
 import org.jclouds.route53.internal.BaseRoute53ApiLiveTest;
 import org.testng.annotations.Test;
 

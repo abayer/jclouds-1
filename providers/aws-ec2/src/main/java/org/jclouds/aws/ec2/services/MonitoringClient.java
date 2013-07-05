@@ -17,6 +17,7 @@
 package org.jclouds.aws.ec2.services;
 
 import java.util.Map;
+
 import org.jclouds.aws.ec2.domain.MonitoringState;
 import org.jclouds.javax.annotation.Nullable;
 

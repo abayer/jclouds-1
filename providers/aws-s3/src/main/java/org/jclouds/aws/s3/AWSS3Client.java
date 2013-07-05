@@ -17,6 +17,7 @@
 package org.jclouds.aws.s3;
 
 import java.util.Map;
+
 import org.jclouds.aws.s3.domain.DeleteResult;
 import org.jclouds.io.Payload;
 import org.jclouds.s3.S3Client;

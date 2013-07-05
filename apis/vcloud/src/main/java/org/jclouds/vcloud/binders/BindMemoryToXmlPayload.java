@@ -26,13 +26,13 @@ import java.util.Properties;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.jamesmurty.utils.XMLBuilder;
 import org.jclouds.cim.ResourceAllocationSettingData.ResourceType;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.rest.binders.BindToStringPayload;
 
 import com.google.common.base.Throwables;
 import com.google.inject.Inject;
-import com.jamesmurty.utils.XMLBuilder;
 
 /**
  * 

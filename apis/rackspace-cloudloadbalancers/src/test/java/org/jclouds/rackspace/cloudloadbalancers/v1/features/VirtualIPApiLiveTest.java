@@ -23,12 +23,12 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.List;
 
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.CreateLoadBalancer;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.AddNode;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.CreateLoadBalancer;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIP;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIPWithId;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIP.Type;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIPWithId;
 import org.jclouds.rackspace.cloudloadbalancers.v1.internal.BaseCloudLoadBalancersApiLiveTest;
 import org.testng.annotations.AfterGroups;
 import org.testng.annotations.Test;

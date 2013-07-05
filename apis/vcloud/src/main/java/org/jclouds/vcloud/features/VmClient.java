@@ -18,6 +18,7 @@ package org.jclouds.vcloud.features;
 
 import java.io.InputStream;
 import java.net.URI;
+
 import org.jclouds.vcloud.domain.GuestCustomizationSection;
 import org.jclouds.vcloud.domain.NetworkConnectionSection;
 import org.jclouds.vcloud.domain.Task;

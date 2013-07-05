@@ -23,9 +23,9 @@ import javax.inject.Singleton;
 
 import org.jclouds.cloudservers.domain.ImageStatus;
 import org.jclouds.compute.domain.Image;
+import org.jclouds.compute.domain.Image.Status;
 import org.jclouds.compute.domain.ImageBuilder;
 import org.jclouds.compute.domain.OperatingSystem;
-import org.jclouds.compute.domain.Image.Status;
 
 import com.google.common.base.Function;
 

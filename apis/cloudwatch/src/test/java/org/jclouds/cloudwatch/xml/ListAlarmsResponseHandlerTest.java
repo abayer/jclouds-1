@@ -22,8 +22,6 @@ import static org.testng.Assert.assertFalse;
 import java.util.Set;
 
 import com.beust.jcommander.internal.Sets;
-import com.google.common.base.Optional;
-import com.google.common.collect.ImmutableSet;
 import org.jclouds.cloudwatch.domain.Alarm;
 import org.jclouds.cloudwatch.domain.ComparisonOperator;
 import org.jclouds.cloudwatch.domain.Dimension;
@@ -36,6 +34,9 @@ import org.jclouds.date.DateService;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
 import org.jclouds.http.functions.BaseHandlerTest;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableSet;
 
 /**
  * Tests behavior of {@code ListAlarmsResponseHandler}.  Implicitly tests behavior of {@code MetricAlarmHandler}.

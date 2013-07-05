@@ -17,6 +17,7 @@
 package org.jclouds.ec2.services;
 
 import java.util.Set;
+
 import org.jclouds.ec2.domain.BundleTask;
 import org.jclouds.ec2.domain.PasswordData;
 import org.jclouds.ec2.options.BundleInstanceS3StorageOptions;

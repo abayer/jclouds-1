@@ -26,9 +26,9 @@ import static org.jclouds.compute.predicates.NodePredicates.parentLocationId;
 
 import javax.inject.Inject;
 
+import org.jclouds.cloudstack.domain.ZoneAndName;
 import org.jclouds.compute.ComputeService;
 import org.jclouds.compute.domain.ComputeMetadata;
-import org.jclouds.cloudstack.domain.ZoneAndName;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;

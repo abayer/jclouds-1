@@ -18,7 +18,6 @@ package org.jclouds.cloudstack.features;
 
 import static org.testng.Assert.assertEquals;
 
-import java.net.URI;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 

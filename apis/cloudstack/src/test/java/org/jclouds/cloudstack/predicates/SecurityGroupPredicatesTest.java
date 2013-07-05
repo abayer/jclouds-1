@@ -16,19 +16,15 @@
  */
 package org.jclouds.cloudstack.predicates;
 
-import static org.jclouds.cloudstack.predicates.SecurityGroupPredicates.portInRange;
 import static org.jclouds.cloudstack.predicates.SecurityGroupPredicates.hasCidr;
-import static org.jclouds.cloudstack.predicates.SecurityGroupPredicates.portInRangeForCidr;
 import static org.jclouds.cloudstack.predicates.SecurityGroupPredicates.nameEquals;
-import static org.testng.Assert.assertEquals;
+import static org.jclouds.cloudstack.predicates.SecurityGroupPredicates.portInRange;
+import static org.jclouds.cloudstack.predicates.SecurityGroupPredicates.portInRangeForCidr;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.util.Set;
-
 import org.jclouds.cloudstack.domain.IngressRule;
 import org.jclouds.cloudstack.domain.SecurityGroup;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableSet;

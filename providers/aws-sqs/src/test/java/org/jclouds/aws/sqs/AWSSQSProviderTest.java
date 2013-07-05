@@ -16,8 +16,8 @@
  */
 package org.jclouds.aws.sqs;
 
-import org.jclouds.sqs.SQSApiMetadata;
 import org.jclouds.providers.internal.BaseProviderMetadataTest;
+import org.jclouds.sqs.SQSApiMetadata;
 import org.testng.annotations.Test;
 
 /**

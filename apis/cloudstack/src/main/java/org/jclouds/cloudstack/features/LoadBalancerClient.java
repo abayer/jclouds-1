@@ -17,9 +17,10 @@
 package org.jclouds.cloudstack.features;
 
 import java.util.Set;
+
 import org.jclouds.cloudstack.domain.LoadBalancerRule;
-import org.jclouds.cloudstack.domain.VirtualMachine;
 import org.jclouds.cloudstack.domain.LoadBalancerRule.Algorithm;
+import org.jclouds.cloudstack.domain.VirtualMachine;
 import org.jclouds.cloudstack.options.CreateLoadBalancerRuleOptions;
 import org.jclouds.cloudstack.options.ListLoadBalancerRulesOptions;
 import org.jclouds.cloudstack.options.UpdateLoadBalancerRuleOptions;

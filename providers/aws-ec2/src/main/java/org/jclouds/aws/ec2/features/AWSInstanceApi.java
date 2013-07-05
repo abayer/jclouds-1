@@ -16,28 +16,8 @@
  */
 package org.jclouds.aws.ec2.features;
 
-import static org.jclouds.aws.reference.FormParameters.ACTION;
-
-import java.util.Set;
-
-import javax.inject.Named;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-
 import org.jclouds.aws.ec2.services.AWSInstanceClient;
-import org.jclouds.aws.ec2.xml.ProductCodesHandler;
-import org.jclouds.aws.filters.FormSigner;
-import org.jclouds.ec2.binders.BindProductCodesToIndexedFormParams;
 import org.jclouds.ec2.features.InstanceApi;
-import org.jclouds.javax.annotation.Nullable;
-import org.jclouds.location.functions.RegionToEndpointOrProviderIfNull;
-import org.jclouds.rest.annotations.BinderParam;
-import org.jclouds.rest.annotations.EndpointParam;
-import org.jclouds.rest.annotations.FormParams;
-import org.jclouds.rest.annotations.RequestFilters;
-import org.jclouds.rest.annotations.VirtualHost;
-import org.jclouds.rest.annotations.XMLResponseParser;
 
 /**
  * Provides access to Instance Services.

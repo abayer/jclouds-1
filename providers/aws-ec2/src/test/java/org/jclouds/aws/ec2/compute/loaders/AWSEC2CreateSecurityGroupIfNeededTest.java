@@ -19,7 +19,6 @@ package org.jclouds.aws.ec2.compute.loaders;
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.createNiceMock;
 import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
 import static org.testng.Assert.assertEquals;
@@ -33,7 +32,6 @@ import org.jclouds.ec2.compute.domain.RegionNameAndIngressRules;
 import org.jclouds.ec2.domain.IpPermission;
 import org.jclouds.ec2.domain.IpProtocol;
 import org.jclouds.ec2.domain.SecurityGroup;
-import org.jclouds.ec2.domain.UserIdGroupPair;
 import org.testng.annotations.Test;
 
 import com.google.common.base.Predicate;

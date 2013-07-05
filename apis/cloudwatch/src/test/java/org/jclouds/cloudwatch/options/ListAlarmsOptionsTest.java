@@ -21,10 +21,11 @@ import static org.testng.Assert.assertFalse;
 
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
 import org.jclouds.cloudwatch.domain.Alarm;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 
 /**
  * Tests behavior of {@code ListAlarmsOptions}.

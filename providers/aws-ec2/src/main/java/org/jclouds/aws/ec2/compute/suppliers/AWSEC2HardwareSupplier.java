@@ -30,8 +30,8 @@ import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.m1_xlarge;
 import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.m2_2xlarge;
 import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.m2_4xlarge;
 import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.m2_xlarge;
-import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.m3_xlarge;
 import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.m3_2xlarge;
+import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.m3_xlarge;
 import static org.jclouds.ec2.compute.domain.EC2HardwareBuilder.t1_micro;
 
 import java.util.Set;

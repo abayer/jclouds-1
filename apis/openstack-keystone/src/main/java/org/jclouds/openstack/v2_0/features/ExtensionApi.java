@@ -17,6 +17,7 @@
 package org.jclouds.openstack.v2_0.features;
 
 import java.util.Set;
+
 import org.jclouds.openstack.v2_0.domain.Extension;
 
 /**

@@ -25,27 +25,26 @@ import static org.testng.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.logging.Logger;
+
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.AddNode;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.CreateLoadBalancer;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer.Status;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.Metadata;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.Node;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.UpdateNode;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIP.Type;
+import org.jclouds.rackspace.cloudloadbalancers.v1.internal.BaseCloudLoadBalancersApiLiveTest;
+import org.testng.annotations.AfterGroups;
+import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
-
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.CreateLoadBalancer;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.Metadata;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.Node;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.UpdateNode;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.AddNode;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer.Status;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIP.Type;
-import org.jclouds.rackspace.cloudloadbalancers.v1.features.LoadBalancerApi;
-import org.jclouds.rackspace.cloudloadbalancers.v1.internal.BaseCloudLoadBalancersApiLiveTest;
-import org.testng.annotations.AfterGroups;
-import org.testng.annotations.Test;
 
 /**
  * @author Dan Lo Bianco

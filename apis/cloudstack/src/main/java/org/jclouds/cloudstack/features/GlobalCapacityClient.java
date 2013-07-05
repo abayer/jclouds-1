@@ -17,6 +17,7 @@
 package org.jclouds.cloudstack.features;
 
 import java.util.Set;
+
 import org.jclouds.cloudstack.domain.Capacity;
 import org.jclouds.cloudstack.options.ListCapacityOptions;
 

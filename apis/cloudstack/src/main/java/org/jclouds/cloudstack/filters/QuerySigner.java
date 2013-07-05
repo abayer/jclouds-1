@@ -35,7 +35,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import com.google.common.base.Joiner;
 import org.jclouds.crypto.Crypto;
 import org.jclouds.domain.Credentials;
 import org.jclouds.http.HttpException;
@@ -48,6 +47,7 @@ import org.jclouds.rest.RequestSigner;
 import org.jclouds.util.Strings2;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Joiner;
 import com.google.common.base.Supplier;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSortedSet;

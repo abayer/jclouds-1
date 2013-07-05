@@ -17,6 +17,7 @@
 package org.jclouds.aws.ec2.services;
 
 import java.util.Set;
+
 import org.jclouds.aws.ec2.domain.AWSRunningInstance;
 import org.jclouds.ec2.domain.Reservation;
 import org.jclouds.ec2.options.RunInstancesOptions;

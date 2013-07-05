@@ -30,6 +30,7 @@ import javax.xml.parsers.FactoryConfigurationError;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import com.jamesmurty.utils.XMLBuilder;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.rest.MapBinder;
 import org.jclouds.rest.binders.BindToStringPayload;
@@ -38,7 +39,6 @@ import org.jclouds.vcloud.VCloudMediaType;
 import org.jclouds.vcloud.options.CaptureVAppOptions;
 
 import com.google.inject.Inject;
-import com.jamesmurty.utils.XMLBuilder;
 
 /**
  * 

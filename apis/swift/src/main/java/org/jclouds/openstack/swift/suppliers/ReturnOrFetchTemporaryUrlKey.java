@@ -16,14 +16,15 @@
  */
 package org.jclouds.openstack.swift.suppliers;
 
-import com.google.common.base.Supplier;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import org.jclouds.openstack.swift.extensions.TemporaryUrlKeyApi;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.UUID;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import org.jclouds.openstack.swift.extensions.TemporaryUrlKeyApi;
+
+import com.google.common.base.Supplier;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 @Singleton
 public class ReturnOrFetchTemporaryUrlKey implements Supplier<String> {

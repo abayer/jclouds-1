@@ -62,8 +62,8 @@ import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
 import com.google.common.collect.ImmutableSet.Builder;
+import com.google.common.collect.Multimap;
 import com.google.common.reflect.Invokable;
 import com.google.inject.Inject;
 

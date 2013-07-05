@@ -21,10 +21,10 @@ import static org.jclouds.ec2.options.DescribeImagesOptions.Builder.imageIds;
 import static org.jclouds.ec2.options.DescribeImagesOptions.Builder.ownedBy;
 import static org.testng.Assert.assertEquals;
 
-import com.google.common.collect.ImmutableList;
-
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of DescribeImagesOptions and DescribeImagesOptions.Builder.*

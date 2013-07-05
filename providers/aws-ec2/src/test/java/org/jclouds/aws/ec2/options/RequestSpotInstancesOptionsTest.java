@@ -25,11 +25,11 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.Date;
 
-import com.google.common.collect.ImmutableList;
-
 import org.jclouds.aws.ec2.domain.SpotInstanceRequest;
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of RequestSpotInstancesOptions and RequestSpotInstancesOptions.Builder.*

@@ -35,7 +35,6 @@ import net.schmizz.sshj.connection.ConnectionException;
 import net.schmizz.sshj.sftp.SFTPException;
 import net.schmizz.sshj.transport.TransportException;
 import net.schmizz.sshj.userauth.UserAuthException;
-
 import org.jclouds.domain.LoginCredentials;
 import org.jclouds.logging.BufferLogger;
 import org.jclouds.logging.BufferLogger.Record;

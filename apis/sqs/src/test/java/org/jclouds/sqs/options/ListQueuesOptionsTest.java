@@ -19,10 +19,10 @@ package org.jclouds.sqs.options;
 import static org.jclouds.sqs.options.ListQueuesOptions.Builder.queuePrefix;
 import static org.testng.Assert.assertEquals;
 
-import com.google.common.collect.ImmutableList;
-
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of ListQueuesOptions and ListQueuesOptions.Builder.*

@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.ec2.compute;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Strings.emptyToNull;
 import static com.google.common.collect.Iterables.concat;

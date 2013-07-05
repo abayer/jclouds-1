@@ -16,8 +16,6 @@
  */
 package org.jclouds.cloudstack.features;
 
-import java.util.Set;
-
 /**
  * Provides synchronous access to CloudStack Hypervisor features.
  * <p/>

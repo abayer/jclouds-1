@@ -17,6 +17,7 @@
 package org.jclouds.aws.ec2.services;
 
 import java.util.Set;
+
 import org.jclouds.aws.ec2.domain.LaunchSpecification;
 import org.jclouds.aws.ec2.domain.Spot;
 import org.jclouds.aws.ec2.domain.SpotInstanceRequest;

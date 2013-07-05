@@ -18,6 +18,7 @@ package org.jclouds.ec2.services;
 
 import java.util.Map;
 import java.util.Set;
+
 import org.jclouds.ec2.domain.Image;
 import org.jclouds.ec2.domain.Image.EbsBlockDevice;
 import org.jclouds.ec2.domain.Permission;

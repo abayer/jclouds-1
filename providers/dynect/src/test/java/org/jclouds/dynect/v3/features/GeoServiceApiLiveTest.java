@@ -20,8 +20,8 @@ import static java.util.logging.Logger.getAnonymousLogger;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
-import org.jclouds.dynect.v3.domain.GeoService;
 import org.jclouds.dynect.v3.domain.GeoRegionGroup;
+import org.jclouds.dynect.v3.domain.GeoService;
 import org.jclouds.dynect.v3.internal.BaseDynECTApiLiveTest;
 import org.testng.annotations.Test;
 

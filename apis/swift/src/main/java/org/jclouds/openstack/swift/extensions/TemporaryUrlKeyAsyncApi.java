@@ -16,7 +16,14 @@
  */
 package org.jclouds.openstack.swift.extensions;
 
-import com.google.common.util.concurrent.ListenableFuture;
+import javax.inject.Named;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.HEAD;
+import javax.ws.rs.HeaderParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+
 import org.jclouds.openstack.filters.AuthenticateRequest;
 import org.jclouds.openstack.swift.Storage;
 import org.jclouds.openstack.swift.functions.ParseTemporaryUrlKeyFromHeaders;
@@ -25,13 +32,7 @@ import org.jclouds.rest.annotations.Endpoint;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.ResponseParser;
 
-import javax.inject.Named;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.HEAD;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.MediaType;
+import com.google.common.util.concurrent.ListenableFuture;
 
 /**
  * @author Andrei Savu

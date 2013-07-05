@@ -17,6 +17,7 @@
 package org.jclouds.openstack.nova.v2_0.extensions;
 
 import java.util.Map;
+
 import org.jclouds.openstack.nova.v2_0.domain.HostAggregate;
 import org.jclouds.openstack.v2_0.ServiceType;
 import org.jclouds.openstack.v2_0.services.Extension;

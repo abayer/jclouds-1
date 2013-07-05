@@ -22,9 +22,6 @@ import static org.jclouds.util.Predicates2.retry;
 import java.util.Date;
 import java.util.Set;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Sets;
 import org.jclouds.cloudwatch.domain.Dimension;
 import org.jclouds.cloudwatch.domain.MetricDatum;
 import org.jclouds.cloudwatch.domain.Unit;
@@ -32,6 +29,10 @@ import org.jclouds.cloudwatch.internal.BaseCloudWatchApiLiveTest;
 import org.jclouds.cloudwatch.options.ListMetricsOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Sets;
 
 /**
  * Tests behavior of {@code CloudWatch}.

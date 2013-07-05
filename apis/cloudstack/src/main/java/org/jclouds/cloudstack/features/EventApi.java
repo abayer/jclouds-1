@@ -16,9 +16,6 @@
  */
 package org.jclouds.cloudstack.features;
 
-import java.util.Set;
-import org.jclouds.cloudstack.domain.Event;
-
 /**
  * Provides synchronous access to CloudStack Account features.
  * <p/>

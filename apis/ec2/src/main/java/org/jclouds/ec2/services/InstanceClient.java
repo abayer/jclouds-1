@@ -18,6 +18,7 @@ package org.jclouds.ec2.services;
 
 import java.util.Map;
 import java.util.Set;
+
 import org.jclouds.ec2.domain.BlockDevice;
 import org.jclouds.ec2.domain.InstanceStateChange;
 import org.jclouds.ec2.domain.Reservation;

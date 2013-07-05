@@ -22,12 +22,12 @@ import static org.jclouds.vcloud.reference.VCloudConstants.PROPERTY_VCLOUD_XML_S
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.jamesmurty.utils.XMLBuilder;
 import org.jclouds.rest.binders.BindToStringPayload;
 import org.jclouds.vcloud.VCloudMediaType;
 import org.jclouds.vcloud.options.CloneVAppOptions;
 
 import com.google.inject.Inject;
-import com.jamesmurty.utils.XMLBuilder;
 
 /**
  * 

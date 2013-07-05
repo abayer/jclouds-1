@@ -16,8 +16,8 @@
  */
 package org.jclouds.cloudwatch.xml;
 
-import com.google.common.collect.Sets;
-import com.google.inject.Inject;
+import java.util.Set;
+
 import org.jclouds.cloudwatch.domain.Dimension;
 import org.jclouds.cloudwatch.domain.Metric;
 import org.jclouds.http.functions.ParseSax;
@@ -25,7 +25,8 @@ import org.jclouds.util.SaxUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
-import java.util.Set;
+import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
 /**
  * @see <a href="http://docs.amazonwebservices.com/AmazonCloudWatch/latest/APIReference/API_Metric.html" />

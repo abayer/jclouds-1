@@ -18,6 +18,7 @@ package org.jclouds.ec2;
 
 import java.io.Closeable;
 import java.util.Set;
+
 import org.jclouds.ec2.features.AMIApi;
 import org.jclouds.ec2.features.AvailabilityZoneAndRegionApi;
 import org.jclouds.ec2.features.ElasticBlockStoreApi;

@@ -83,9 +83,9 @@ import org.jclouds.rest.RestApiMetadata;
 import org.jclouds.rest.RestContext;
 import org.jclouds.rest.config.CredentialStoreModule;
 import org.jclouds.rest.config.HttpApiModule;
-import org.jclouds.rest.config.SyncToAsyncHttpInvocationModule;
 import org.jclouds.rest.config.RestClientModule;
 import org.jclouds.rest.config.RestModule;
+import org.jclouds.rest.config.SyncToAsyncHttpInvocationModule;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Function;

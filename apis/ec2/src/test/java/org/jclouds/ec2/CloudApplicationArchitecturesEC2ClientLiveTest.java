@@ -18,8 +18,8 @@ package org.jclouds.ec2;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.jclouds.ec2.options.RunInstancesOptions.Builder.asType;
-import static org.jclouds.util.Predicates2.retry;
 import static org.jclouds.scriptbuilder.domain.Statements.exec;
+import static org.jclouds.util.Predicates2.retry;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertNotNull;

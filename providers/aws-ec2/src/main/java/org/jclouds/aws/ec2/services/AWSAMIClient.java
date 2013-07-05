@@ -17,6 +17,7 @@
 package org.jclouds.aws.ec2.services;
 
 import java.util.Set;
+
 import org.jclouds.ec2.services.AMIClient;
 import org.jclouds.javax.annotation.Nullable;
 

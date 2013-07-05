@@ -17,16 +17,16 @@
  * under the License.
  */
 package org.jclouds.cloudstack.compute;
+
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.jclouds.cloudstack.predicates.SshKeyPairPredicates.nameMatches;
+import static org.jclouds.cloudstack.predicates.ZonePredicates.supportsSecurityGroups;
 import static org.jclouds.compute.config.ComputeServiceProperties.TIMEOUT_NODE_RUNNING;
 import static org.jclouds.compute.config.ComputeServiceProperties.TIMEOUT_NODE_SUSPENDED;
 import static org.jclouds.compute.config.ComputeServiceProperties.TIMEOUT_NODE_TERMINATED;
-import static org.jclouds.cloudstack.predicates.SshKeyPairPredicates.nameMatches;
-import static org.jclouds.cloudstack.predicates.ZonePredicates.supportsSecurityGroups;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicReference;
 
 import javax.inject.Inject;
@@ -35,6 +35,13 @@ import javax.inject.Provider;
 import javax.inject.Singleton;
 
 import org.jclouds.Constants;
+import org.jclouds.cloudstack.CloudStackClient;
+import org.jclouds.cloudstack.compute.options.CloudStackTemplateOptions;
+import org.jclouds.cloudstack.domain.SecurityGroup;
+import org.jclouds.cloudstack.domain.SshKeyPair;
+import org.jclouds.cloudstack.domain.Zone;
+import org.jclouds.cloudstack.domain.ZoneAndName;
+import org.jclouds.cloudstack.predicates.SecurityGroupPredicates;
 import org.jclouds.collect.Memoized;
 import org.jclouds.compute.ComputeServiceContext;
 import org.jclouds.compute.callables.RunScriptOnNode;
@@ -59,21 +66,12 @@ import org.jclouds.compute.strategy.ResumeNodeStrategy;
 import org.jclouds.compute.strategy.SuspendNodeStrategy;
 import org.jclouds.domain.Credentials;
 import org.jclouds.domain.Location;
-import org.jclouds.cloudstack.CloudStackClient;
-import org.jclouds.cloudstack.compute.options.CloudStackTemplateOptions;
-import org.jclouds.cloudstack.domain.SecurityGroup;
-import org.jclouds.cloudstack.domain.SshKeyPair;
-import org.jclouds.cloudstack.domain.Zone;
-import org.jclouds.cloudstack.domain.ZoneAndName;
-import org.jclouds.cloudstack.domain.ZoneSecurityGroupNamePortsCidrs;
-import org.jclouds.cloudstack.predicates.SecurityGroupPredicates;
 import org.jclouds.scriptbuilder.functions.InitAdminAccess;
 
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.base.Supplier;
-import com.google.common.base.Throwables;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;

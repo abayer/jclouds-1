@@ -17,6 +17,7 @@
 package org.jclouds.vcloud.features;
 
 import java.net.URI;
+
 import org.jclouds.vcloud.domain.VDC;
 
 /**

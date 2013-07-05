@@ -41,6 +41,10 @@ import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import javax.inject.Named;
 
+import com.jcraft.jsch.ChannelExec;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
 import org.jclouds.compute.domain.ExecChannel;
 import org.jclouds.compute.domain.ExecResponse;
 import org.jclouds.domain.LoginCredentials;
@@ -62,10 +66,6 @@ import com.google.common.base.Supplier;
 import com.google.common.io.Closeables;
 import com.google.common.net.HostAndPort;
 import com.google.inject.Inject;
-import com.jcraft.jsch.ChannelExec;
-import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
 
 /**
  * This class needs refactoring. It is not thread safe.

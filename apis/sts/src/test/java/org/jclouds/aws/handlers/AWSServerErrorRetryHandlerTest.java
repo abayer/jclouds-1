@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.aws.handlers;
+
 import static javax.ws.rs.HttpMethod.PUT;
 import static javax.ws.rs.core.Response.Status.INTERNAL_SERVER_ERROR;
 import static javax.ws.rs.core.Response.Status.SERVICE_UNAVAILABLE;
@@ -27,13 +28,11 @@ import static org.testng.Assert.assertFalse;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.easymock.IAnswer;
-
 import org.jclouds.aws.domain.AWSError;
 import org.jclouds.aws.util.AWSUtils;
 import org.jclouds.http.HttpCommand;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.http.HttpResponse;
-import org.jclouds.http.handlers.BackoffLimitedRetryHandler;
 import org.jclouds.io.Payloads;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

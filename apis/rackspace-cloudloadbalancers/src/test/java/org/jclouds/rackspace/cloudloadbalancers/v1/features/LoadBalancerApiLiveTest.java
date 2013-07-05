@@ -27,11 +27,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.UpdateLoadBalancer;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.CreateLoadBalancer;
-import org.jclouds.rackspace.cloudloadbalancers.v1.domain.Metadata;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.AddNode;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.CreateLoadBalancer;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.LoadBalancer;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.Metadata;
+import org.jclouds.rackspace.cloudloadbalancers.v1.domain.UpdateLoadBalancer;
 import org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIP.Type;
 import org.jclouds.rackspace.cloudloadbalancers.v1.internal.BaseCloudLoadBalancersApiLiveTest;
 import org.testng.annotations.AfterGroups;

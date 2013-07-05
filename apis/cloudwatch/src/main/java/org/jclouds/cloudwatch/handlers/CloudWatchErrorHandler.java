@@ -23,7 +23,6 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
 
-import com.google.common.annotations.Beta;
 import org.jclouds.aws.AWSResponseException;
 import org.jclouds.aws.domain.AWSError;
 import org.jclouds.aws.xml.ErrorHandler;
@@ -33,6 +32,8 @@ import org.jclouds.http.HttpResponse;
 import org.jclouds.http.HttpResponseException;
 import org.jclouds.http.functions.ParseSax;
 import org.jclouds.rest.InsufficientResourcesException;
+
+import com.google.common.annotations.Beta;
 
 /**
  * @author Jeremy Whitlock

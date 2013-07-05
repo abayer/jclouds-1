@@ -20,10 +20,10 @@ import static org.jclouds.ec2.options.DetachVolumeOptions.Builder.fromDevice;
 import static org.jclouds.ec2.options.DetachVolumeOptions.Builder.fromInstance;
 import static org.testng.Assert.assertEquals;
 
-import com.google.common.collect.ImmutableList;
-
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of DetachVolumeOptions and DetachVolumeOptions.Builder.*

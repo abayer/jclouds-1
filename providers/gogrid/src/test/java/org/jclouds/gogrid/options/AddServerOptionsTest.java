@@ -20,10 +20,10 @@ import static org.jclouds.gogrid.options.AddServerOptions.Builder.asSandboxType;
 import static org.jclouds.gogrid.options.AddServerOptions.Builder.withDescription;
 import static org.testng.Assert.assertEquals;
 
-import com.google.common.collect.ImmutableList;
-
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of AddServerOptions and AddServerOptions.Builder.*

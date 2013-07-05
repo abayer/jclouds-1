@@ -21,8 +21,8 @@ import static org.testng.Assert.assertEquals;
 import java.io.InputStream;
 
 import org.jclouds.http.functions.BaseHandlerTest;
-import org.jclouds.sts.domain.UserAndSessionCredentials;
 import org.jclouds.sts.domain.User;
+import org.jclouds.sts.domain.UserAndSessionCredentials;
 import org.jclouds.sts.xml.UserAndSessionCredentialsHandler;
 import org.testng.annotations.Test;
 

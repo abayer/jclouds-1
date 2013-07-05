@@ -17,6 +17,7 @@
 package org.jclouds.openstack.keystone.v2_0.features;
 
 import java.util.Set;
+
 import org.jclouds.openstack.keystone.v2_0.domain.Endpoint;
 import org.jclouds.openstack.keystone.v2_0.domain.Token;
 import org.jclouds.openstack.keystone.v2_0.domain.User;

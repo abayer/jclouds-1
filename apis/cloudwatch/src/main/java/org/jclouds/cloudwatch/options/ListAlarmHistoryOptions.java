@@ -21,11 +21,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Date;
 
-import com.google.common.annotations.Beta;
 import org.jclouds.cloudwatch.domain.HistoryItemType;
 import org.jclouds.date.DateService;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
 import org.jclouds.http.options.BaseHttpRequestOptions;
+
+import com.google.common.annotations.Beta;
 
 /**
  * Options used to describe alarm history.

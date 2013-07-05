@@ -16,8 +16,8 @@
  */
 package org.jclouds.sts.options;
 
-import static org.jclouds.sts.options.SessionCredentialsOptions.Builder.serialNumber;
 import static org.jclouds.sts.options.SessionCredentialsOptions.Builder.durationSeconds;
+import static org.jclouds.sts.options.SessionCredentialsOptions.Builder.serialNumber;
 import static org.jclouds.sts.options.SessionCredentialsOptions.Builder.tokenCode;
 import static org.testng.Assert.assertEquals;
 

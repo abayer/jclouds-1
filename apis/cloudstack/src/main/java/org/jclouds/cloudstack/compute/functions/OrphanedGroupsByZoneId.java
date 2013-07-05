@@ -25,12 +25,12 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.jclouds.cloudstack.compute.predicates.AllNodesInGroupTerminated;
+import org.jclouds.cloudstack.domain.ZoneAndName;
 import org.jclouds.compute.ComputeService;
 import org.jclouds.compute.domain.NodeMetadata;
 import org.jclouds.compute.predicates.NodePredicates;
 import org.jclouds.domain.LocationScope;
-import org.jclouds.cloudstack.compute.predicates.AllNodesInGroupTerminated;
-import org.jclouds.cloudstack.domain.ZoneAndName;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Function;

@@ -18,6 +18,7 @@ package org.jclouds.cloudstack.features;
 
 import java.util.Date;
 import java.util.Set;
+
 import org.jclouds.cloudstack.domain.JobResult;
 import org.jclouds.cloudstack.domain.UsageRecord;
 import org.jclouds.cloudstack.options.GenerateUsageRecordsOptions;

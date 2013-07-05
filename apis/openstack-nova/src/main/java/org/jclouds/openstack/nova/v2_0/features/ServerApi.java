@@ -16,8 +16,8 @@
  */
 package org.jclouds.openstack.nova.v2_0.features;
 
-import com.google.common.base.Optional;
 import java.util.Map;
+
 import org.jclouds.collect.PagedIterable;
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.openstack.keystone.v2_0.domain.PaginatedCollection;
@@ -28,6 +28,8 @@ import org.jclouds.openstack.nova.v2_0.options.CreateServerOptions;
 import org.jclouds.openstack.nova.v2_0.options.RebuildServerOptions;
 import org.jclouds.openstack.v2_0.domain.Resource;
 import org.jclouds.openstack.v2_0.options.PaginationOptions;
+
+import com.google.common.base.Optional;
 
 /**
  * Provides synchronous access to Server.

@@ -18,6 +18,7 @@ package org.jclouds.gogrid.services;
 
 import java.util.Map;
 import java.util.Set;
+
 import org.jclouds.domain.Credentials;
 import org.jclouds.gogrid.domain.Option;
 import org.jclouds.gogrid.domain.PowerCommand;

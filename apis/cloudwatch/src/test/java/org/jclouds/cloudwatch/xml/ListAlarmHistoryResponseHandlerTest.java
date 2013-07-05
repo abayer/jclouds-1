@@ -21,7 +21,6 @@ import static org.testng.Assert.assertFalse;
 
 import java.util.Set;
 
-import com.google.common.collect.Sets;
 import org.jclouds.cloudwatch.domain.AlarmHistoryItem;
 import org.jclouds.cloudwatch.domain.HistoryItemType;
 import org.jclouds.collect.IterableWithMarker;
@@ -29,6 +28,8 @@ import org.jclouds.collect.IterableWithMarkers;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
 import org.jclouds.http.functions.BaseHandlerTest;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.Sets;
 
 /**
  * Tests behavior of {@code ListAlarmHistoryResponseHandler}.  Implicitly tests behavior of

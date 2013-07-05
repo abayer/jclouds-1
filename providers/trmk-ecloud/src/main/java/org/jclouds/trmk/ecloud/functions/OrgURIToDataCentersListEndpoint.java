@@ -27,7 +27,6 @@ import org.jclouds.trmk.vcloud_0_8.domain.Org;
 import org.jclouds.trmk.vcloud_0_8.domain.ReferenceType;
 import org.jclouds.trmk.vcloud_0_8.functions.OrgURIToEndpoint;
 
-import com.google.common.base.Function;
 import com.google.common.base.Supplier;
 
 /**

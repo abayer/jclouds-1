@@ -16,8 +16,9 @@
  */
 package org.jclouds.config;
 
-import com.google.inject.AbstractModule;
 import org.jclouds.annotations.Name;
+
+import com.google.inject.AbstractModule;
 
 /**
  * Binds name to Context.

@@ -16,25 +16,9 @@
  */
 package org.jclouds.cloudstack.features;
 
-import java.util.Set;
-
-import javax.inject.Named;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-
-import org.jclouds.Fallbacks.EmptySetOnNotFoundOr404;
-import org.jclouds.Fallbacks.NullOnNotFoundOr404;
-import org.jclouds.cloudstack.domain.VMGroup;
 import org.jclouds.cloudstack.filters.AuthenticationFilter;
-import org.jclouds.rest.annotations.Fallback;
-import org.jclouds.rest.annotations.OnlyElement;
 import org.jclouds.rest.annotations.QueryParams;
 import org.jclouds.rest.annotations.RequestFilters;
-import org.jclouds.rest.annotations.SelectJson;
-
-import com.google.common.util.concurrent.ListenableFuture;
 
 /**
  * Provides asynchronous access to cloudstack via their REST API.

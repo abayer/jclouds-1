@@ -24,9 +24,10 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.Date;
 
-import com.google.common.collect.ImmutableList;
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * Tests possible uses of DescribeSpotPriceHistoryOptions and

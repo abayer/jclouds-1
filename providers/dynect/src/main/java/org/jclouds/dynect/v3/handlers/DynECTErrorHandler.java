@@ -19,8 +19,8 @@ package org.jclouds.dynect.v3.handlers;
 import static org.jclouds.http.HttpUtils.closeClientButKeepContentStream;
 import static org.jclouds.http.HttpUtils.releasePayload;
 
-import org.jclouds.dynect.v3.DynECTExceptions.TargetExistsException;
 import org.jclouds.dynect.v3.DynECTExceptions.JobStillRunningException;
+import org.jclouds.dynect.v3.DynECTExceptions.TargetExistsException;
 import org.jclouds.http.HttpCommand;
 import org.jclouds.http.HttpErrorHandler;
 import org.jclouds.http.HttpResponse;

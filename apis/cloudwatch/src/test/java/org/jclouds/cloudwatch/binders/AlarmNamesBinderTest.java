@@ -16,12 +16,13 @@
  */
 package org.jclouds.cloudwatch.binders;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 import org.jclouds.http.HttpRequest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 /**
  * Tests behavior of {@link AlarmNamesBinder}.

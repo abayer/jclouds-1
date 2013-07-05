@@ -16,15 +16,15 @@
  */
 package org.jclouds.aws.s3.domain;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.ForwardingSet;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Map;
 import java.util.Set;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import com.google.common.base.Objects;
+import com.google.common.collect.ForwardingSet;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 
 /**
  * Multi-object delete API response

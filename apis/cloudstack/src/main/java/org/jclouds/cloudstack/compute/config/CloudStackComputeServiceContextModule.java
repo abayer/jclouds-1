@@ -30,7 +30,6 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import org.jclouds.cloudstack.CloudStackClient;
-import org.jclouds.cloudstack.compute.CloudStackComputeService;
 import org.jclouds.cloudstack.compute.extensions.CloudStackImageExtension;
 import org.jclouds.cloudstack.compute.functions.OrphanedGroupsByZoneId;
 import org.jclouds.cloudstack.compute.functions.ServiceOfferingToHardware;
@@ -95,8 +94,8 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.Provides;
 import com.google.inject.TypeLiteral;
-import com.google.inject.name.Names;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
+import com.google.inject.name.Names;
 
 /**
  * 

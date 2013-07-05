@@ -16,18 +16,8 @@
  */
 package org.jclouds.ec2.features;
 
-import java.util.Map;
-import java.util.Set;
 import org.jclouds.aws.filters.FormSigner;
-import org.jclouds.ec2.domain.Image;
-import org.jclouds.ec2.domain.Image.EbsBlockDevice;
-import org.jclouds.ec2.domain.Permission;
-import org.jclouds.ec2.options.CreateImageOptions;
-import org.jclouds.ec2.options.DescribeImagesOptions;
-import org.jclouds.ec2.options.RegisterImageBackedByEbsOptions;
-import org.jclouds.ec2.options.RegisterImageOptions;
 import org.jclouds.ec2.services.AMIAsyncClient;
-import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.VirtualHost;
 

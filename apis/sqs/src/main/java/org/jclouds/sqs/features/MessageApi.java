@@ -17,6 +17,7 @@
 package org.jclouds.sqs.features;
 
 import java.util.Map;
+
 import org.jclouds.sqs.domain.BatchResult;
 import org.jclouds.sqs.domain.Message;
 import org.jclouds.sqs.domain.MessageIdAndMD5;

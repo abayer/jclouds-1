@@ -39,7 +39,6 @@ import org.jclouds.domain.LoginCredentials;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 
 /**
  * defines the connection between the {@link CloudServersClient} implementation and the jclouds
