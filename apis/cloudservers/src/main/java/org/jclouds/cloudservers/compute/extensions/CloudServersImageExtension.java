@@ -30,7 +30,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import org.jclouds.Constants;
-import org.jclouds.cloudservers.CloudServersClient;
+import org.jclouds.cloudservers.CloudServersApi;
 import org.jclouds.cloudservers.domain.Server;
 import org.jclouds.compute.domain.CloneImageTemplate;
 import org.jclouds.compute.domain.Image;
@@ -63,13 +63,13 @@ public class CloudServersImageExtension implements ImageExtension {
    @Named(ComputeServiceConstants.COMPUTE_LOGGER)
    protected Logger logger = Logger.NULL;
 
-   private final CloudServersClient client;
+   private final CloudServersApi client;
    private final ListeningExecutorService userExecutor;
    private final Supplier<Location> location;
    private final Predicate<AtomicReference<Image>> imageAvailablePredicate;
 
    @Inject
-   public CloudServersImageExtension(CloudServersClient client, @Named(Constants.PROPERTY_USER_THREADS) ListeningExecutorService userExecutor,
+   public CloudServersImageExtension(CloudServersApi client, @Named(Constants.PROPERTY_USER_THREADS) ListeningExecutorService userExecutor,
          Supplier<Location> location,
          @Named(TIMEOUT_IMAGE_AVAILABLE) Predicate<AtomicReference<Image>> imageAvailablePredicate) {
       this.client = checkNotNull(client, "client");

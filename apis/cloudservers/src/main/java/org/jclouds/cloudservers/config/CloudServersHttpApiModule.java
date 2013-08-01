@@ -25,8 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
 
-import org.jclouds.cloudservers.CloudServersAsyncClient;
-import org.jclouds.cloudservers.CloudServersClient;
+import org.jclouds.cloudservers.CloudServersApi;
 import org.jclouds.cloudservers.handlers.ParseCloudServersErrorFromHttpResponse;
 import org.jclouds.date.TimeStamp;
 import org.jclouds.http.HttpErrorHandler;
@@ -40,7 +39,7 @@ import org.jclouds.openstack.keystone.v1_1.config.AuthenticationServiceModule;
 import org.jclouds.openstack.services.Compute;
 import org.jclouds.rest.ConfiguresRestClient;
 import org.jclouds.rest.annotations.ApiVersion;
-import org.jclouds.rest.config.RestClientModule;
+import org.jclouds.rest.config.HttpApiModule;
 
 import com.google.common.base.Supplier;
 import com.google.inject.Provides;
@@ -50,7 +49,7 @@ import com.google.inject.Provides;
  * @author Adrian Cole
  */
 @ConfiguresRestClient
-public class CloudServersRestClientModule extends RestClientModule<CloudServersClient, CloudServersAsyncClient> {
+public class CloudServersHttpApiModule extends HttpApiModule<CloudServersApi> {
 
    @Override
    protected void configure() {

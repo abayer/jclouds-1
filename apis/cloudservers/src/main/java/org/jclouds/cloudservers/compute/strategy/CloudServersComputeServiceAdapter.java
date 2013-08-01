@@ -26,7 +26,7 @@ import static org.jclouds.compute.util.ComputeServiceUtils.metadataAndTagsAsComm
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import org.jclouds.cloudservers.CloudServersClient;
+import org.jclouds.cloudservers.CloudServersApi;
 import org.jclouds.cloudservers.domain.Flavor;
 import org.jclouds.cloudservers.domain.Image;
 import org.jclouds.cloudservers.domain.RebootType;
@@ -39,20 +39,19 @@ import org.jclouds.domain.LoginCredentials;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 
 /**
- * defines the connection between the {@link CloudServersClient} implementation and the jclouds
+ * defines the connection between the {@link org.jclouds.cloudservers.CloudServersApi} implementation and the jclouds
  * {@link ComputeService}
  * 
  */
 @Singleton
 public class CloudServersComputeServiceAdapter implements ComputeServiceAdapter<Server, Flavor, Image, Location> {
 
-   protected final CloudServersClient client;
+   protected final CloudServersApi client;
 
    @Inject
-   protected CloudServersComputeServiceAdapter(CloudServersClient client) {
+   protected CloudServersComputeServiceAdapter(CloudServersApi client) {
       this.client = checkNotNull(client, "client");
    }
 

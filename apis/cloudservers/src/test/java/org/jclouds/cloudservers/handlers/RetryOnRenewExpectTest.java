@@ -16,7 +16,7 @@
  */
 package org.jclouds.cloudservers.handlers;
 
-import org.jclouds.cloudservers.CloudServersClient;
+import org.jclouds.cloudservers.CloudServersApi;
 import org.jclouds.cloudservers.internal.BaseCloudServersRestClientExpectTest;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.http.HttpResponse;
@@ -61,7 +61,7 @@ public class RetryOnRenewExpectTest extends BaseCloudServersRestClientExpectTest
 
       HttpResponse imageDeleted = HttpResponse.builder().statusCode(204).message("HTTP/1.1 204 No Content").build();
 
-      CloudServersClient clientWhenImageExists = orderedRequestsSendResponses(initialAuth, responseWithAuth,
+      CloudServersApi clientWhenImageExists = orderedRequestsSendResponses(initialAuth, responseWithAuth,
             deleteImage, pleaseRenew, redoAuth, responseWithUrls2, deleteImage2, imageDeleted);
 
       assert clientWhenImageExists.deleteImage(11);
@@ -80,7 +80,7 @@ public class RetryOnRenewExpectTest extends BaseCloudServersRestClientExpectTest
             .payload("[{\"unauthorized\":{\"message\":\"Fatal unauthorized.\",\"code\":401}}]")
             .build();
 
-      CloudServersClient client = orderedRequestsSendResponses(initialAuth, responseWithAuth, deleteImage,
+      CloudServersApi client = orderedRequestsSendResponses(initialAuth, responseWithAuth, deleteImage,
             unauthResponse);
 
       client.deleteImage(11);
@@ -100,7 +100,7 @@ public class RetryOnRenewExpectTest extends BaseCloudServersRestClientExpectTest
                         .newStringPayload("[{\"unauthorized\":{\"message\":\"A different message implying fatal.\",\"code\":401}}]"))
             .build();
 
-      CloudServersClient client = requestSendsResponse(initialAuth, unauthResponse);
+      CloudServersApi client = requestSendsResponse(initialAuth, unauthResponse);
 
       client.deleteImage(11);
    }

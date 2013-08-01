@@ -66,7 +66,7 @@ import com.google.inject.Injector;
 import com.google.inject.Module;
 
 /**
- * Tests behavior of {@code CloudServersClient}
+ * Tests behavior of {@code CloudServersApi}
  * 
  * @author Adrian Cole
  */
@@ -77,7 +77,7 @@ public class CloudServersClientLiveTest extends BaseComputeServiceContextLiveTes
       provider = "cloudservers";
    }
 
-   protected CloudServersClient client;
+   protected CloudServersApi client;
    protected SshClient.Factory sshFactory;
    protected Predicate<HostAndPort> socketTester;
 
@@ -86,7 +86,7 @@ public class CloudServersClientLiveTest extends BaseComputeServiceContextLiveTes
    public void setupContext() {
       super.setupContext();
       Injector injector = view.utils().injector();
-      client = injector.getInstance(CloudServersClient.class);
+      client = injector.getInstance(CloudServersApi.class);
       sshFactory = injector.getInstance(SshClient.Factory.class);
       SocketOpen socketOpen = injector.getInstance(SocketOpen.class);
       socketTester = retry(socketOpen, 120, 1, SECONDS);

@@ -16,8 +16,8 @@
  */
 package org.jclouds.openstack.keystone.v1_1.config;
 
-import static org.jclouds.rest.config.BinderUtils.bindSyncToAsyncHttpApi;
 import static org.jclouds.Constants.PROPERTY_SESSION_INTERVAL;
+import static org.jclouds.rest.config.BinderUtils.bindHttpApi;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -33,8 +33,7 @@ import org.jclouds.location.Provider;
 import org.jclouds.location.suppliers.ImplicitRegionIdSupplier;
 import org.jclouds.location.suppliers.RegionIdToURISupplier;
 import org.jclouds.openstack.internal.Authentication;
-import org.jclouds.openstack.keystone.v1_1.AuthenticationAsyncClient;
-import org.jclouds.openstack.keystone.v1_1.AuthenticationClient;
+import org.jclouds.openstack.keystone.v1_1.AuthenticationApi;
 import org.jclouds.openstack.keystone.v1_1.domain.Auth;
 import org.jclouds.openstack.keystone.v1_1.handlers.RetryOnRenew;
 import org.jclouds.openstack.keystone.v1_1.suppliers.RegionIdToURIFromAuthForServiceSupplier;
@@ -45,9 +44,9 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.inject.AbstractModule;
-import com.google.inject.name.Named;
 import com.google.inject.Provides;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
+import com.google.inject.name.Named;
 
 /**
  * 
@@ -58,7 +57,7 @@ public class AuthenticationServiceModule extends AbstractModule {
    @Override
    protected void configure() {
       // ServiceClient is used directly for filters and retry handlers, so let's bind it explicitly
-      bindSyncToAsyncHttpApi(binder(), AuthenticationClient.class, AuthenticationAsyncClient.class);
+      bindHttpApi(binder(), AuthenticationApi.class);
       install(new FactoryModuleBuilder().implement(RegionIdToURISupplier.class,
                RegionIdToURIFromAuthForServiceSupplier.class).build(RegionIdToURISupplier.Factory.class));
       install(new FactoryModuleBuilder().implement(ImplicitRegionIdSupplier.class, V1DefaultRegionIdSupplier.class)
@@ -84,10 +83,10 @@ public class AuthenticationServiceModule extends AbstractModule {
    @Singleton
    public static class GetAuth extends CacheLoader<Credentials, Auth> {
 
-      private final AuthenticationClient client;
+      private final AuthenticationApi client;
 
       @Inject
-      public GetAuth(final AuthenticationClient client) {
+      public GetAuth(final AuthenticationApi client) {
          this.client = client;
       }
 

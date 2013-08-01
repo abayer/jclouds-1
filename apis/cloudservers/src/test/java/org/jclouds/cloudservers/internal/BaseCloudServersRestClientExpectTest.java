@@ -23,8 +23,8 @@ import java.util.Properties;
 
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.cloudservers.CloudServersApiMetadata;
-import org.jclouds.cloudservers.CloudServersClient;
-import org.jclouds.cloudservers.config.CloudServersRestClientModule;
+import org.jclouds.cloudservers.CloudServersApi;
+import org.jclouds.cloudservers.config.CloudServersHttpApiModule;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
 import org.jclouds.openstack.filters.AddTimestampQuery;
 import org.jclouds.openstack.keystone.v1_1.internal.BaseKeystoneRestClientExpectTest;
@@ -38,7 +38,7 @@ import com.google.inject.Module;
  * 
  * @author Adrian Cole
  */
-public class BaseCloudServersRestClientExpectTest extends BaseKeystoneRestClientExpectTest<CloudServersClient> {
+public class BaseCloudServersRestClientExpectTest extends BaseKeystoneRestClientExpectTest<CloudServersApi> {
 
    public BaseCloudServersRestClientExpectTest() {
       provider = "cloudservers";
@@ -66,11 +66,11 @@ public class BaseCloudServersRestClientExpectTest extends BaseKeystoneRestClient
     */
    @Override
    protected Module createModule() {
-      return new TestCloudServersRestClientModule();
+      return new TestCloudServersHttpApiModule();
    }
 
    @ConfiguresRestClient
-      protected static class TestCloudServersRestClientModule extends CloudServersRestClientModule {
+      protected static class TestCloudServersHttpApiModule extends CloudServersHttpApiModule {
 
       @Override
       public Supplier<Date> provideCacheBusterDate() {

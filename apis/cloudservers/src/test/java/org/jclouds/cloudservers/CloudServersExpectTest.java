@@ -41,12 +41,12 @@ public class CloudServersExpectTest extends BaseCloudServersRestClientExpectTest
       
       HttpResponse imageDeleted = HttpResponse.builder().statusCode(204).message("HTTP/1.1 204 No Content").build();
 
-      CloudServersClient clientWhenImageExists = requestsSendResponses(initialAuth, responseWithAuth, deleteImage11, imageDeleted);
+      CloudServersApi clientWhenImageExists = requestsSendResponses(initialAuth, responseWithAuth, deleteImage11, imageDeleted);
       assert clientWhenImageExists.deleteImage(11);
 
       HttpResponse imageNotFound = HttpResponse.builder().statusCode(404).message("HTTP/1.1 404 Not Found").build();
 
-      CloudServersClient clientWhenImageDoesntExist =  requestsSendResponses(initialAuth, responseWithAuth, deleteImage11, imageNotFound);
+      CloudServersApi clientWhenImageDoesntExist =  requestsSendResponses(initialAuth, responseWithAuth, deleteImage11, imageNotFound);
       assert !clientWhenImageDoesntExist.deleteImage(11);
       
    }

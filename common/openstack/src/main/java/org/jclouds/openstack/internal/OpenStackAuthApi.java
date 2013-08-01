@@ -28,29 +28,27 @@ import org.jclouds.openstack.reference.AuthHeaders;
 import org.jclouds.rest.annotations.ResponseParser;
 import org.jclouds.rest.annotations.VirtualHost;
 
-import com.google.common.util.concurrent.ListenableFuture;
-
 /**
  * Provides access to Rackspace resources via their REST API.
  * <p/>
- * 
+ *
  * @see <a href="http://docs.rackspacecloud.com/servers/api/cs-devguide-latest.pdf" />
  * @author Adrian Cole
  */
 @Path("/v{" + Constants.PROPERTY_API_VERSION + "}")
 @VirtualHost
-public interface OpenStackAuthAsyncClient {
+public interface OpenStackAuthApi {
 
    @GET
    @Consumes
    @ResponseParser(ParseAuthenticationResponseFromHeaders.class)
-   ListenableFuture<AuthenticationResponse> authenticate(@HeaderParam(AuthHeaders.AUTH_USER) String user,
-            @HeaderParam(AuthHeaders.AUTH_KEY) String key);
-   
+   AuthenticationResponse authenticate(@HeaderParam(AuthHeaders.AUTH_USER) String user,
+                                       @HeaderParam(AuthHeaders.AUTH_KEY) String key);
+
 
    @GET
    @Consumes
    @ResponseParser(ParseAuthenticationResponseFromHeaders.class)
-   ListenableFuture<AuthenticationResponse> authenticateStorage(@HeaderParam(AuthHeaders.STORAGE_USER) String user,
-            @HeaderParam(AuthHeaders.STORAGE_PASS) String key);
+   AuthenticationResponse authenticateStorage(@HeaderParam(AuthHeaders.STORAGE_USER) String user,
+                                              @HeaderParam(AuthHeaders.STORAGE_PASS) String key);
 }

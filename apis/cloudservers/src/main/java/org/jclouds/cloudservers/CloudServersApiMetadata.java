@@ -23,12 +23,11 @@ import java.util.Properties;
 
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.cloudservers.compute.config.CloudServersComputeServiceContextModule;
-import org.jclouds.cloudservers.config.CloudServersRestClientModule;
+import org.jclouds.cloudservers.config.CloudServersHttpApiModule;
 import org.jclouds.compute.ComputeServiceContext;
-import org.jclouds.rest.internal.BaseRestApiMetadata;
+import org.jclouds.rest.internal.BaseHttpApiMetadata;
 
 import com.google.common.collect.ImmutableSet;
-import com.google.common.reflect.TypeToken;
 import com.google.inject.Module;
 
 /**
@@ -36,16 +35,7 @@ import com.google.inject.Module;
  * 
  * @author Adrian Cole
  */
-public class CloudServersApiMetadata extends BaseRestApiMetadata {
-
-   /**
-    * @deprecated please use {@code org.jclouds.ContextBuilder#buildApi(CloudServersClient.class)} as
-    *             {@link CloudServersAsyncClient} interface will be removed in jclouds 1.7.
-    */
-   @Deprecated
-   public static final TypeToken<org.jclouds.rest.RestContext<CloudServersClient, CloudServersAsyncClient>> CONTEXT_TOKEN = new TypeToken<org.jclouds.rest.RestContext<CloudServersClient, CloudServersAsyncClient>>() {
-      private static final long serialVersionUID = 1L;
-   };
+public class CloudServersApiMetadata extends BaseHttpApiMetadata {
 
    @Override
    public Builder toBuilder() {
@@ -61,15 +51,14 @@ public class CloudServersApiMetadata extends BaseRestApiMetadata {
    }
 
    public static Properties defaultProperties() {
-      Properties properties = BaseRestApiMetadata.defaultProperties();
+      Properties properties = BaseHttpApiMetadata.defaultProperties();
       return properties;
    }
 
-   public static class Builder extends BaseRestApiMetadata.Builder<Builder> {
+   public static class Builder extends BaseHttpApiMetadata.Builder<CloudServersApi, Builder> {
 
       @SuppressWarnings("deprecation")
       protected Builder() {
-         super(CloudServersClient.class, CloudServersAsyncClient.class);
          id("cloudservers")
          .name("Rackspace Cloud Servers API")
          .identityName("Username")
@@ -79,7 +68,7 @@ public class CloudServersApiMetadata extends BaseRestApiMetadata {
          .defaultEndpoint("https://auth.api.rackspacecloud.com")
          .defaultProperties(CloudServersApiMetadata.defaultProperties())
          .view(typeToken(ComputeServiceContext.class))
-         .defaultModules(ImmutableSet.<Class<? extends Module>>of(CloudServersRestClientModule.class, CloudServersComputeServiceContextModule.class));
+         .defaultModules(ImmutableSet.<Class<? extends Module>>of(CloudServersHttpApiModule.class, CloudServersComputeServiceContextModule.class));
       }
 
       @Override

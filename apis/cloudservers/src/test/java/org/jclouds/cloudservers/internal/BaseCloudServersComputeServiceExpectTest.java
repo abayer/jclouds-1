@@ -23,7 +23,7 @@ import java.util.Properties;
 
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.cloudservers.CloudServersApiMetadata;
-import org.jclouds.cloudservers.config.CloudServersRestClientModule;
+import org.jclouds.cloudservers.config.CloudServersHttpApiModule;
 import org.jclouds.compute.ComputeServiceContext;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
 import org.jclouds.http.HttpRequest;
@@ -59,11 +59,11 @@ public abstract class BaseCloudServersComputeServiceExpectTest<T> extends BaseKe
 
    @Override
    protected Module createModule() {
-      return new TestCloudServersRestClientModule();
+      return new TestCloudServersHttpApiModule();
    }
 
    @ConfiguresRestClient
-   protected static class TestCloudServersRestClientModule extends CloudServersRestClientModule {
+   protected static class TestCloudServersHttpApiModule extends CloudServersHttpApiModule {
 
       @Override
       public Supplier<Date> provideCacheBusterDate() {

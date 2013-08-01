@@ -21,7 +21,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import javax.annotation.Resource;
 import javax.inject.Singleton;
 
-import org.jclouds.cloudservers.CloudServersClient;
+import org.jclouds.cloudservers.CloudServersApi;
 import org.jclouds.cloudservers.domain.Server;
 import org.jclouds.cloudservers.domain.ServerStatus;
 import org.jclouds.logging.Logger;
@@ -38,13 +38,13 @@ import com.google.inject.Inject;
 @Singleton
 public class ServerActive implements Predicate<Server> {
 
-   private final CloudServersClient client;
+   private final CloudServersApi client;
 
    @Resource
    protected Logger logger = Logger.NULL;
 
    @Inject
-   public ServerActive(CloudServersClient client) {
+   public ServerActive(CloudServersApi client) {
       this.client = client;
    }
 
