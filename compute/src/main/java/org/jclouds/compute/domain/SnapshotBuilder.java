@@ -18,75 +18,65 @@ package org.jclouds.compute.domain;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import org.jclouds.compute.domain.internal.VolumeImpl;
-import org.jclouds.domain.Location;
+import java.util.Date;
+
+import org.jclouds.compute.domain.internal.SnapshotImpl;
 import org.jclouds.javax.annotation.Nullable;
 
 /**
- * 
- * @author Adrian Cole
+ * @author Andrew Bayer
  */
-public class VolumeBuilder {
+public class SnapshotBuilder {
 
-   private Volume.Type type;
    private String id;
    @Nullable
    private Float size;
    @Nullable
-   private String device;
-   private boolean bootDevice;
-   private boolean durable;
-   @Nullable
    private String name;
    @Nullable
    private String locationId;
+   @Nullable
+   private String volumeId;
+   @Nullable
+   private Date created;
 
-   public VolumeBuilder type(Volume.Type type) {
-      this.type = checkNotNull(type, "type");
-      return this;
-   }
-
-   public VolumeBuilder id(String id) {
+   public SnapshotBuilder id(String id) {
       this.id = checkNotNull(id, "id");
       return this;
    }
 
-   public VolumeBuilder size(@Nullable Float size) {
+   public SnapshotBuilder size(Float size) {
       this.size = size;
       return this;
    }
 
-   public VolumeBuilder device(@Nullable String device) {
-      this.device = device;
-      return this;
-   }
-
-   public VolumeBuilder name(@Nullable String name) {
+   public SnapshotBuilder name(String name) {
       this.name = name;
       return this;
    }
 
-   public VolumeBuilder locationId(@Nullable String locationId) {
+   public SnapshotBuilder locationId(String locationId) {
       this.locationId = locationId;
       return this;
    }
 
-   public VolumeBuilder bootDevice(boolean bootDevice) {
-      this.bootDevice = bootDevice;
+   public SnapshotBuilder volumeId(String volumeId) {
+      this.volumeId = volumeId;
       return this;
    }
 
-   public VolumeBuilder durable(boolean durable) {
-      this.durable = durable;
+   public SnapshotBuilder created(Date created) {
+      this.created = created;
       return this;
    }
 
-   public Volume build() {
-      return new VolumeImpl(id, type, size, device, bootDevice, durable, name, locationId);
+   public Snapshot build() {
+      return new SnapshotImpl(id, size, name, locationId, volumeId, created);
    }
 
-   public static Volume fromVolume(Volume in) {
-      return new VolumeImpl(in.getId(), in.getType(), in.getSize(), in.getDevice(), in.isBootDevice(),
-              in.isDurable(), in.getName(), in.getLocationId());
+   public static Snapshot fromSnapshot(Snapshot in) {
+      return new SnapshotImpl(in.getId(), in.getSize(), in.getName(), in.getLocationId(),
+              in.getVolumeId(), in.getCreated());
    }
+
 }

@@ -18,6 +18,7 @@ package org.jclouds.compute.stub.config;
 
 import org.jclouds.compute.config.JCloudsNativeComputeServiceAdapterContextModule;
 import org.jclouds.compute.extensions.SecurityGroupExtension;
+import org.jclouds.compute.extensions.VolumeExtension;
 import org.jclouds.concurrent.SingleThreaded;
 
 import com.google.common.base.Optional;
@@ -45,4 +46,8 @@ public class StubComputeServiceContextModule extends JCloudsNativeComputeService
       return Optional.of(i.getInstance(SecurityGroupExtension.class));
    }
 
+   @Override
+   protected Optional<VolumeExtension> provideVolumeExtension(Injector i) {
+      return Optional.of(i.getInstance(VolumeExtension.class));
+   }
 }

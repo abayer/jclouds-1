@@ -45,6 +45,7 @@ import org.jclouds.compute.domain.Template;
 import org.jclouds.compute.domain.TemplateBuilder;
 import org.jclouds.compute.extensions.ImageExtension;
 import org.jclouds.compute.extensions.SecurityGroupExtension;
+import org.jclouds.compute.extensions.VolumeExtension;
 import org.jclouds.compute.functions.CreateSshClientOncePortIsListeningOnNode;
 import org.jclouds.compute.functions.DefaultCredentialsFromImageOrOverridingCredentials;
 import org.jclouds.compute.functions.TemplateOptionsToStatement;
@@ -310,6 +311,12 @@ public abstract class BaseComputeServiceContextModule extends AbstractModule {
    @Provides
    @Singleton
    protected Optional<SecurityGroupExtension> provideSecurityGroupExtension(Injector i){
+      return Optional.absent();
+   }
+
+   @Provides
+   @Singleton
+   protected Optional<VolumeExtension> provideVolumeExtension(Injector i) {
       return Optional.absent();
    }
    

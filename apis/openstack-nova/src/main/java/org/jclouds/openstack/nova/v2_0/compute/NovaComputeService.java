@@ -41,6 +41,7 @@ import org.jclouds.compute.domain.NodeMetadata;
 import org.jclouds.compute.domain.TemplateBuilder;
 import org.jclouds.compute.extensions.ImageExtension;
 import org.jclouds.compute.extensions.SecurityGroupExtension;
+import org.jclouds.compute.extensions.VolumeExtension;
 import org.jclouds.compute.functions.GroupNamingConvention;
 import org.jclouds.compute.internal.BaseComputeService;
 import org.jclouds.compute.internal.PersistNodeCredentials;
@@ -109,12 +110,14 @@ public class NovaComputeService extends BaseComputeService {
             LoadingCache<ZoneAndName, KeyPair> keyPairCache,
             Function<Set<? extends NodeMetadata>, Multimap<String, String>> orphanedGroupsByZoneId,
             GroupNamingConvention.Factory namingConvention, Optional<ImageExtension> imageExtension,
-            Optional<SecurityGroupExtension> securityGroupExtension) {
+            Optional<SecurityGroupExtension> securityGroupExtension,
+            Optional<VolumeExtension> volumeExtension) {
       super(context, credentialStore, images, sizes, locations, listNodesStrategy, getImageStrategy,
-               getNodeMetadataStrategy, runNodesAndAddToSetStrategy, rebootNodeStrategy, destroyNodeStrategy,
-               startNodeStrategy, stopNodeStrategy, templateBuilderProvider, templateOptionsProvider, nodeRunning,
-               nodeTerminated, nodeSuspended, initScriptRunnerFactory, initAdminAccess, runScriptOnNodeFactory,
-               persistNodeCredentials, timeouts, userExecutor, imageExtension, securityGroupExtension);
+              getNodeMetadataStrategy, runNodesAndAddToSetStrategy, rebootNodeStrategy, destroyNodeStrategy,
+              startNodeStrategy, stopNodeStrategy, templateBuilderProvider, templateOptionsProvider, nodeRunning,
+              nodeTerminated, nodeSuspended, initScriptRunnerFactory, initAdminAccess, runScriptOnNodeFactory,
+              persistNodeCredentials, timeouts, userExecutor, imageExtension, securityGroupExtension,
+              volumeExtension);
       this.novaApi = checkNotNull(novaApi, "novaApi");
       this.securityGroupMap = checkNotNull(securityGroupMap, "securityGroupMap");
       this.keyPairCache = checkNotNull(keyPairCache, "keyPairCache");

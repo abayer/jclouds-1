@@ -56,7 +56,7 @@ public class ImagePredicates {
 
    /**
     * evaluates true if the Image id is in the supplied set
-    * 
+    *
     * @param ids
     *           ids of the images
     * @return predicate
@@ -76,10 +76,10 @@ public class ImagePredicates {
          }
       };
    }
-   
+
    /**
     * evaluates true if the Image metadata contains the following values
-    * 
+    *
     * @param key
     *           key in Image#getUserMetadata
     * @param value

@@ -221,7 +221,7 @@ public class EC2SecurityGroupExtension implements SecurityGroupExtension {
             }
          }
       }
-      System.out.println("group: " + group);
+
       return getSecurityGroupById(new RegionAndName(region, group.getName()).slashEncode());
    }
 

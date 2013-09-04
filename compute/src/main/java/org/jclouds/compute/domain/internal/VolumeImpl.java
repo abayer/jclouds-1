@@ -38,6 +38,10 @@ public class VolumeImpl implements Volume {
    private final String device;
    private final boolean bootDevice;
    private final boolean durable;
+   @Nullable
+   private final String name;
+   @Nullable
+   private final String locationId;
 
    @Override
    public boolean equals(Object o) {
@@ -47,13 +51,14 @@ public class VolumeImpl implements Volume {
          return false;
       VolumeImpl that = VolumeImpl.class.cast(o);
       return equal(this.id, that.id) && equal(this.getType(), that.getType()) && equal(this.size, that.size)
-               && equal(this.device, that.device) && equal(this.bootDevice, that.bootDevice)
-               && equal(this.durable, that.durable);
+              && equal(this.device, that.device) && equal(this.bootDevice, that.bootDevice)
+              && equal(this.durable, that.durable) && equal(this.name, that.name)
+              && equal(this.locationId, that.locationId);
    }
 
    @Override
    public int hashCode() {
-      return Objects.hashCode(id, size, device, bootDevice, durable);
+      return Objects.hashCode(id, size, device, bootDevice, durable, name, locationId);
    }
 
    @Override
@@ -63,25 +68,33 @@ public class VolumeImpl implements Volume {
 
    protected ToStringHelper string() {
       return Objects.toStringHelper("").omitNullValues().add("id", id).add("type", getType()).add("size", size)
-               .add("device", device).add("bootDevice", bootDevice).add("durable", durable);
+              .add("device", device).add("bootDevice", bootDevice).add("durable", durable)
+              .add("name", name).add("locationId", locationId);
    }
 
    public VolumeImpl(@Nullable String id, Volume.Type type, @Nullable Float size, @Nullable String device,
-            boolean bootDevice, boolean durable) {
+            boolean bootDevice, boolean durable, @Nullable String name, @Nullable String locationId) {
       this.id = id;
       this.type = checkNotNull(type, "type");
       this.size = size;
       this.device = device;
       this.bootDevice = bootDevice;
       this.durable = durable;
+      this.name = name;
+      this.locationId = locationId;
    }
 
    public VolumeImpl(@Nullable Float size, boolean bootDevice, boolean durable) {
-      this(null, Volume.Type.LOCAL, size, null, bootDevice, durable);
+      this(null, Volume.Type.LOCAL, size, null, bootDevice, durable, null, null);
    }
 
    public VolumeImpl(@Nullable Float size, @Nullable String device, boolean bootDevice, boolean durable) {
-      this(null, Volume.Type.LOCAL, size, device, bootDevice, durable);
+      this(null, Volume.Type.LOCAL, size, device, bootDevice, durable, null, null);
+   }
+
+   public VolumeImpl(@Nullable String id, Volume.Type type, @Nullable Float size, @Nullable String device,
+                     boolean bootDevice, boolean durable) {
+      this(id, type, size, device, bootDevice, durable, null, null);
    }
 
    /**
@@ -132,5 +145,19 @@ public class VolumeImpl implements Volume {
       return bootDevice;
    }
 
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public String getName() {
+      return name;
+   }
 
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public String getLocationId() {
+      return locationId;
+   }
 }

@@ -23,7 +23,7 @@ import com.google.inject.ImplementedBy;
 
 /**
  * Describes what appears as a disk to an {@link OperatingSystem}
- * 
+ *
  * @author Adrian Cole
  */
 @ImplementedBy(VolumeImpl.class)
@@ -51,7 +51,7 @@ public interface Volume {
    /**
     * Unique identifier. If set, can be used to reference the volume for reorganizing within
     * {@link Hardware} or external commands such as backups.
-    * 
+    *
     */
    @Nullable
    String getId();
@@ -63,26 +63,39 @@ public interface Volume {
 
    /**
     * @return capacity in gigabytes, if available
-    * 
+    *
     */
    @Nullable
    Float getSize();
 
    /**
-    * 
+    *
     * @return device this volume relates to on an operating system, if available
     */
    @Nullable
    String getDevice();
 
    /**
-    * 
+    *
+    * @return the name of the volume, if available.
+    */
+   @Nullable
+   String getName();
+
+   /**
+    * @return the location for this volume, if available
+    */
+   @Nullable
+   String getLocationId();
+
+   /**
+    *
     * @return true if this survives restarts
     */
    boolean isDurable();
 
    /**
-    * 
+    *
     * @return true if this is the boot device
     */
    boolean isBootDevice();

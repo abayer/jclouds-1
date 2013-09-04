@@ -30,10 +30,13 @@ import org.jclouds.compute.domain.NodeMetadata;
 import org.jclouds.compute.domain.NodeMetadata.Status;
 import org.jclouds.compute.domain.Processor;
 import org.jclouds.compute.domain.SecurityGroup;
+import org.jclouds.compute.domain.Snapshot;
 import org.jclouds.compute.domain.Volume;
 import org.jclouds.compute.domain.internal.VolumeImpl;
 import org.jclouds.compute.extensions.SecurityGroupExtension;
+import org.jclouds.compute.extensions.VolumeExtension;
 import org.jclouds.compute.stub.extensions.StubSecurityGroupExtension;
+import org.jclouds.compute.stub.extensions.StubVolumeExtension;
 import org.jclouds.domain.Credentials;
 import org.jclouds.location.Provider;
 import org.jclouds.predicates.SocketOpen;
@@ -60,7 +63,8 @@ public class StubComputeServiceDependenciesModule extends AbstractModule {
    protected void configure() {
       bind(new TypeLiteral<SecurityGroupExtension>() {
       }).to(StubSecurityGroupExtension.class);
-
+      bind(new TypeLiteral<VolumeExtension>() {
+      }).to(StubVolumeExtension.class);
    }
 
    // STUB STUFF STATIC SO MULTIPLE CONTEXTS CAN SEE IT
@@ -115,15 +119,121 @@ public class StubComputeServiceDependenciesModule extends AbstractModule {
       return groupsForNodeBacking.get(creds.get().identity);
    }
 
+   protected static final LoadingCache<String, ConcurrentMap<String, Volume>> volumeBacking = CacheBuilder.newBuilder()
+           .build(new CacheLoader<String, ConcurrentMap<String, Volume>>() {
+
+              @Override
+              public ConcurrentMap<String, Volume> load(String arg0) throws Exception {
+                 return new ConcurrentHashMap<String, Volume>();
+              }
+
+           });
+
+   @Provides
+   @Singleton
+   protected ConcurrentMap<String, Volume> provideVolumes(@Provider Supplier<Credentials> creds)
+           throws ExecutionException {
+      return volumeBacking.get(creds.get().identity);
+   }
+
+   protected static final LoadingCache<String, Multimap<String, Volume>> volumesForNodeBacking = CacheBuilder.newBuilder()
+           .build(new CacheLoader<String, Multimap<String, Volume>>() {
+
+              @Override
+              public Multimap<String, Volume> load(String arg0) throws Exception {
+                 return LinkedHashMultimap.create();
+              }
+
+           });
+
+   @Provides
+   @Singleton
+   @Named("VOLUME_NODE")
+   protected Multimap<String, Volume> provideVolumesForNode(@Provider Supplier<Credentials> creds)
+           throws ExecutionException {
+      return volumesForNodeBacking.get(creds.get().identity);
+   }
+
+   protected static final LoadingCache<String, Multimap<String, Volume>> volumesForLocationsBacking = CacheBuilder.newBuilder()
+           .build(new CacheLoader<String, Multimap<String, Volume>>() {
+
+              @Override
+              public Multimap<String, Volume> load(String arg0) throws Exception {
+                 return LinkedHashMultimap.create();
+              }
+
+           });
+
+   @Provides
+   @Singleton
+   @Named("VOLUME_LOCATION")
+   protected Multimap<String, Volume> provideVolumesForLocations(@Provider Supplier<Credentials> creds)
+           throws ExecutionException {
+      return volumesForLocationsBacking.get(creds.get().identity);
+   }
+
+   protected static final LoadingCache<String, ConcurrentMap<String, Snapshot>> snapshotBacking = CacheBuilder.newBuilder()
+           .build(new CacheLoader<String, ConcurrentMap<String, Snapshot>>() {
+
+              @Override
+              public ConcurrentMap<String, Snapshot> load(String arg0) throws Exception {
+                 return new ConcurrentHashMap<String, Snapshot>();
+              }
+
+           });
+
+   @Provides
+   @Singleton
+   protected ConcurrentMap<String, Snapshot> provideSnapshots(@Provider Supplier<Credentials> creds)
+           throws ExecutionException {
+      return snapshotBacking.get(creds.get().identity);
+   }
+
+   protected static final LoadingCache<String, Multimap<String, Snapshot>> snapshotsForVolumeBacking = CacheBuilder.newBuilder()
+           .build(new CacheLoader<String, Multimap<String, Snapshot>>() {
+
+              @Override
+              public Multimap<String, Snapshot> load(String arg0) throws Exception {
+                 return LinkedHashMultimap.create();
+              }
+
+           });
+
+   @Provides
+   @Singleton
+   @Named("SNAPSHOT_VOLUME")
+   protected Multimap<String, Snapshot> provideSnapshotsForVolume(@Provider Supplier<Credentials> creds)
+           throws ExecutionException {
+      return snapshotsForVolumeBacking.get(creds.get().identity);
+   }
+
+   protected static final LoadingCache<String, Multimap<String, Snapshot>> snapshotsForLocationsBacking = CacheBuilder.newBuilder()
+           .build(new CacheLoader<String, Multimap<String, Snapshot>>() {
+
+              @Override
+              public Multimap<String, Snapshot> load(String arg0) throws Exception {
+                 return LinkedHashMultimap.create();
+              }
+
+           });
+
+   @Provides
+   @Singleton
+   @Named("SNAPSHOT_LOCATION")
+   protected Multimap<String, Snapshot> provideSnapshotsForLocations(@Provider Supplier<Credentials> creds)
+           throws ExecutionException {
+      return snapshotsForLocationsBacking.get(creds.get().identity);
+   }
+
    protected static final LoadingCache<String, AtomicInteger> nodeIds = CacheBuilder.newBuilder().build(
-            new CacheLoader<String, AtomicInteger>() {
+           new CacheLoader<String, AtomicInteger>() {
 
-               @Override
-               public AtomicInteger load(String arg0) throws Exception {
-                  return new AtomicInteger(0);
-               }
+              @Override
+              public AtomicInteger load(String arg0) throws Exception {
+                 return new AtomicInteger(0);
+              }
 
-            });
+           });
 
    @Provides
    @Named("NODE_ID")
@@ -132,14 +242,14 @@ public class StubComputeServiceDependenciesModule extends AbstractModule {
    }
 
    protected static final LoadingCache<String, AtomicInteger> groupIds = CacheBuilder.newBuilder().build(
-            new CacheLoader<String, AtomicInteger>() {
+           new CacheLoader<String, AtomicInteger>() {
 
-               @Override
-               public AtomicInteger load(String arg0) throws Exception {
-                  return new AtomicInteger(0);
-               }
+              @Override
+              public AtomicInteger load(String arg0) throws Exception {
+                 return new AtomicInteger(0);
+              }
 
-            });
+           });
 
    @Provides
    @Named("GROUP_ID")
@@ -147,6 +257,37 @@ public class StubComputeServiceDependenciesModule extends AbstractModule {
       return groupIds.get(creds.get().identity).incrementAndGet();
    }
 
+   protected static final LoadingCache<String, AtomicInteger> volumeIds = CacheBuilder.newBuilder().build(
+           new CacheLoader<String, AtomicInteger>() {
+
+              @Override
+              public AtomicInteger load(String arg0) throws Exception {
+                 return new AtomicInteger(0);
+              }
+
+           });
+
+   @Provides
+   @Named("VOLUME_ID")
+   protected Integer provideVolumeIdForIdentity(@Provider Supplier<Credentials> creds) throws ExecutionException {
+      return volumeIds.get(creds.get().identity).incrementAndGet();
+   }
+
+   protected static final LoadingCache<String, AtomicInteger> snapshotIds = CacheBuilder.newBuilder().build(
+           new CacheLoader<String, AtomicInteger>() {
+
+              @Override
+              public AtomicInteger load(String arg0) throws Exception {
+                 return new AtomicInteger(0);
+              }
+
+           });
+
+   @Provides
+   @Named("SNAPSHOT_ID")
+   protected Integer provideSnapshotIdForIdentity(@Provider Supplier<Credentials> creds) throws ExecutionException {
+      return snapshotIds.get(creds.get().identity).incrementAndGet();
+   }
    @Singleton
    @Provides
    @Named("PUBLIC_IP_PREFIX")

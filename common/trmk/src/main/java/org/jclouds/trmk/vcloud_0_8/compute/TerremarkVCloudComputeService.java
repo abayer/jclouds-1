@@ -38,6 +38,7 @@ import org.jclouds.compute.domain.NodeMetadata;
 import org.jclouds.compute.domain.TemplateBuilder;
 import org.jclouds.compute.extensions.ImageExtension;
 import org.jclouds.compute.extensions.SecurityGroupExtension;
+import org.jclouds.compute.extensions.VolumeExtension;
 import org.jclouds.compute.internal.BaseComputeService;
 import org.jclouds.compute.internal.PersistNodeCredentials;
 import org.jclouds.compute.options.TemplateOptions;
@@ -85,12 +86,14 @@ public class TerremarkVCloudComputeService extends BaseComputeService {
             RunScriptOnNode.Factory runScriptOnNodeFactory, InitAdminAccess initAdminAccess,
             PersistNodeCredentials persistNodeCredentials, Timeouts timeouts,
             @Named(Constants.PROPERTY_USER_THREADS) ListeningExecutorService userExecutor, CleanupOrphanKeys cleanupOrphanKeys,
-            Optional<ImageExtension> imageExtension, Optional<SecurityGroupExtension> securityGroupExtension) {
+            Optional<ImageExtension> imageExtension, Optional<SecurityGroupExtension> securityGroupExtension,
+            Optional<VolumeExtension> volumeExtension) {
       super(context, credentialStore, images, sizes, locations, listNodesStrategy, getImageStrategy,
-               getNodeMetadataStrategy, runNodesAndAddToSetStrategy, rebootNodeStrategy, destroyNodeStrategy,
-               resumeNodeStrategy, suspendNodeStrategy, templateBuilderProvider, templateOptionsProvider, nodeRunning,
-               nodeTerminated, nodeSuspended, initScriptRunnerFactory, initAdminAccess, runScriptOnNodeFactory,
-               persistNodeCredentials, timeouts, userExecutor, imageExtension, securityGroupExtension);
+              getNodeMetadataStrategy, runNodesAndAddToSetStrategy, rebootNodeStrategy, destroyNodeStrategy,
+              resumeNodeStrategy, suspendNodeStrategy, templateBuilderProvider, templateOptionsProvider, nodeRunning,
+              nodeTerminated, nodeSuspended, initScriptRunnerFactory, initAdminAccess, runScriptOnNodeFactory,
+              persistNodeCredentials, timeouts, userExecutor, imageExtension, securityGroupExtension,
+              volumeExtension);
       this.cleanupOrphanKeys = cleanupOrphanKeys;
    }
 

@@ -67,6 +67,7 @@ import org.jclouds.compute.domain.Template;
 import org.jclouds.compute.domain.TemplateBuilder;
 import org.jclouds.compute.extensions.ImageExtension;
 import org.jclouds.compute.extensions.SecurityGroupExtension;
+import org.jclouds.compute.extensions.VolumeExtension;
 import org.jclouds.compute.options.RunScriptOptions;
 import org.jclouds.compute.options.TemplateOptions;
 import org.jclouds.compute.reference.ComputeServiceConstants;
@@ -143,6 +144,7 @@ public class BaseComputeService implements ComputeService {
    private final ListeningExecutorService userExecutor;
    private final Optional<ImageExtension> imageExtension;
    private final Optional<SecurityGroupExtension> securityGroupExtension;
+   private final Optional<VolumeExtension> volumeExtension;
 
    @Inject
    protected BaseComputeService(ComputeServiceContext context, Map<String, Credentials> credentialStore,
@@ -160,7 +162,8 @@ public class BaseComputeService implements ComputeService {
             InitializeRunScriptOnNodeOrPlaceInBadMap.Factory initScriptRunnerFactory, InitAdminAccess initAdminAccess,
             RunScriptOnNode.Factory runScriptOnNodeFactory, PersistNodeCredentials persistNodeCredentials,
             Timeouts timeouts, @Named(Constants.PROPERTY_USER_THREADS) ListeningExecutorService userExecutor,
-            Optional<ImageExtension> imageExtension, Optional<SecurityGroupExtension> securityGroupExtension) {
+            Optional<ImageExtension> imageExtension, Optional<SecurityGroupExtension> securityGroupExtension,
+            Optional<VolumeExtension> volumeExtension) {
       this.context = checkNotNull(context, "context");
       this.credentialStore = checkNotNull(credentialStore, "credentialStore");
       this.images = checkNotNull(images, "images");
@@ -187,6 +190,7 @@ public class BaseComputeService implements ComputeService {
       this.userExecutor = checkNotNull(userExecutor, "userExecutor");
       this.imageExtension = checkNotNull(imageExtension, "imageExtension");
       this.securityGroupExtension = checkNotNull(securityGroupExtension, "securityGroupExtension");
+      this.volumeExtension = checkNotNull(volumeExtension, "volumeExtension");
    }
 
    /**
@@ -723,5 +727,13 @@ public class BaseComputeService implements ComputeService {
    @Override
    public Optional<SecurityGroupExtension> getSecurityGroupExtension() {
       return securityGroupExtension;
+   }
+
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public Optional<VolumeExtension> getVolumeExtension() {
+      return volumeExtension;
    }
 }

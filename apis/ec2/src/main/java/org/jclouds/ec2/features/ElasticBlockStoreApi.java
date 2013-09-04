@@ -28,6 +28,7 @@ import javax.ws.rs.Path;
 import org.jclouds.Fallbacks.EmptySetOnNotFoundOr404;
 import org.jclouds.aws.filters.FormSigner;
 import org.jclouds.ec2.EC2Fallbacks.VoidOnVolumeAvailable;
+import org.jclouds.ec2.binders.BindFiltersToIndexedFormParams;
 import org.jclouds.ec2.binders.BindUserGroupsToIndexedFormParams;
 import org.jclouds.ec2.binders.BindUserIdsToIndexedFormParams;
 import org.jclouds.ec2.binders.BindVolumeIdsToIndexedFormParams;
@@ -54,6 +55,8 @@ import org.jclouds.rest.annotations.FormParams;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.VirtualHost;
 import org.jclouds.rest.annotations.XMLResponseParser;
+
+import com.google.common.collect.Multimap;
 
 /**
  * Provides access to EC2 Elastic Block Store services via their REST API.
@@ -411,7 +414,18 @@ public interface ElasticBlockStoreApi {
    @Fallback(EmptySetOnNotFoundOr404.class)
    Set<Snapshot> describeSnapshotsInRegion(
             @EndpointParam(parser = RegionToEndpointOrProviderIfNull.class) @Nullable String region,
+            @BinderParam(BindFiltersToIndexedFormParams.class) @Nullable Multimap<String,String> filters,
             DescribeSnapshotsOptions... options);
+
+   @Named("DescribeSnapshots")
+   @POST
+   @Path("/")
+   @FormParams(keys = ACTION, values = "DescribeSnapshots")
+   @XMLResponseParser(DescribeSnapshotsResponseHandler.class)
+   @Fallback(EmptySetOnNotFoundOr404.class)
+   Set<Snapshot> describeSnapshotsInRegion(
+           @EndpointParam(parser = RegionToEndpointOrProviderIfNull.class) @Nullable String region,
+           DescribeSnapshotsOptions... options);
 
    /**
     * Deletes a snapshot of an Amazon EBS volume that you own. For more information, go to the

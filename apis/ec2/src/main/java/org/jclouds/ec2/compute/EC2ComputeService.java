@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 package org.jclouds.ec2.compute;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Strings.emptyToNull;
 import static com.google.common.collect.Iterables.concat;
@@ -56,6 +57,7 @@ import org.jclouds.compute.domain.Template;
 import org.jclouds.compute.domain.TemplateBuilder;
 import org.jclouds.compute.extensions.ImageExtension;
 import org.jclouds.compute.extensions.SecurityGroupExtension;
+import org.jclouds.compute.extensions.VolumeExtension;
 import org.jclouds.compute.functions.GroupNamingConvention;
 import org.jclouds.compute.functions.GroupNamingConvention.Factory;
 import org.jclouds.compute.internal.BaseComputeService;
@@ -130,12 +132,14 @@ public class EC2ComputeService extends BaseComputeService {
             @Named("SECURITY") LoadingCache<RegionAndName, String> securityGroupMap,
             Optional<ImageExtension> imageExtension, GroupNamingConvention.Factory namingConvention,
             @Named(PROPERTY_EC2_GENERATE_INSTANCE_NAMES) boolean generateInstanceNames,
-            Optional<SecurityGroupExtension> securityGroupExtension) {
+            Optional<SecurityGroupExtension> securityGroupExtension,
+            Optional<VolumeExtension> volumeExtension) {
       super(context, credentialStore, images, sizes, locations, listNodesStrategy, getImageStrategy,
-               getNodeMetadataStrategy, runNodesAndAddToSetStrategy, rebootNodeStrategy, destroyNodeStrategy,
-               startNodeStrategy, stopNodeStrategy, templateBuilderProvider, templateOptionsProvider, nodeRunning,
-               nodeTerminated, nodeSuspended, initScriptRunnerFactory, initAdminAccess, runScriptOnNodeFactory,
-               persistNodeCredentials, timeouts, userExecutor, imageExtension, securityGroupExtension);
+              getNodeMetadataStrategy, runNodesAndAddToSetStrategy, rebootNodeStrategy, destroyNodeStrategy,
+              startNodeStrategy, stopNodeStrategy, templateBuilderProvider, templateOptionsProvider, nodeRunning,
+              nodeTerminated, nodeSuspended, initScriptRunnerFactory, initAdminAccess, runScriptOnNodeFactory,
+              persistNodeCredentials, timeouts, userExecutor, imageExtension, securityGroupExtension,
+              volumeExtension);
       this.client = client;
       this.credentialsMap = credentialsMap;
       this.securityGroupMap = securityGroupMap;
@@ -231,7 +235,7 @@ public class EC2ComputeService extends BaseComputeService {
          
          if (keyNameMatcher.apply(keyName) || keyName.matches(oldKeyNameRegex)) {
             Set<String> instancesUsingKeyPair = extractIdsFromInstances(filter(concat(client.getInstanceApi().get()
-                  .describeInstancesInRegion(region)), usingKeyPairAndNotDead(keyPair)));
+                    .describeInstancesInRegion(region)), usingKeyPairAndNotDead(keyPair)));
             if (instancesUsingKeyPair.size() > 0) {
                logger.debug("<< inUse keyPair(%s), by (%s)", keyPair.getKeyName(), instancesUsingKeyPair);
             } else {

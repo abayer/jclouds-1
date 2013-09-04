@@ -16,14 +16,13 @@
  */
 package org.jclouds.ec2.predicates;
 
-import static org.jclouds.ec2.options.DescribeSnapshotsOptions.Builder.snapshotIds;
-
 import javax.annotation.Resource;
 import javax.inject.Singleton;
 
-import org.jclouds.ec2.domain.Snapshot;
+import org.jclouds.ec2.domain.Volume;
 import org.jclouds.ec2.features.ElasticBlockStoreApi;
 import org.jclouds.logging.Logger;
+import org.jclouds.rest.ResourceNotFoundException;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -31,30 +30,35 @@ import com.google.inject.Inject;
 
 /**
  * 
- * Tests to see if a snapshot is completed.
+ * Tests to see if a volume is deleted.
  * 
  * @author Adrian Cole
+ * @author Andrew Bayer
  */
 @Singleton
-public class SnapshotCompleted implements Predicate<Snapshot> {
+public class VolumeDeleted implements Predicate<Volume> {
 
    private final ElasticBlockStoreApi client;
    @Resource
    protected Logger logger = Logger.NULL;
 
    @Inject
-   public SnapshotCompleted(ElasticBlockStoreApi client) {
+   public VolumeDeleted(ElasticBlockStoreApi client) {
       this.client = client;
    }
 
-   public boolean apply(Snapshot snapshot) {
-      logger.trace("looking for status on snapshot %s", snapshot.getId());
-
-      snapshot = Iterables.getOnlyElement(client.describeSnapshotsInRegion(snapshot.getRegion(),
-              snapshotIds(snapshot.getId())));
-      logger.trace("%s: looking for status %s: currently: %s; progress %d/100", snapshot,
-               Snapshot.Status.COMPLETED, snapshot.getStatus(), snapshot.getProgress());
-      return snapshot.getStatus() == Snapshot.Status.COMPLETED;
+   public boolean apply(Volume volume) {
+      logger.trace("looking for status on volume %s", volume.getId());
+      try {
+         volume = Iterables.getOnlyElement(client.describeVolumesInRegion(volume.getRegion(), volume
+                 .getId()));
+         logger.trace("%s: looking for status %s: currently: %s", volume, Volume.Status.DELETED,
+               volume.getStatus());
+         return volume.getStatus() == Volume.Status.DELETED;
+      } catch (ResourceNotFoundException e) {
+         // This means the volume's already thoroughly deleted, so we return true anyway.
+         return true;
+      }
    }
 
 }
