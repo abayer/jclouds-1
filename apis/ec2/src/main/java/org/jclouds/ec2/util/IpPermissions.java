@@ -32,6 +32,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
+import com.google.common.collect.TreeRangeSet;
 
 /**
  *
@@ -44,7 +45,7 @@ public class IpPermissions extends IpPermission {
    protected IpPermissions(IpProtocol ipProtocol, int fromPort, int toPort,
          Multimap<String, String> userIdGroupPairs, Iterable<String> groupIds, Iterable<String> ipRanges) {
       super(ipProtocol, fromPort, toPort, userIdGroupPairs, groupIds, userIdGroupPairs.size() == 0 ? ipRanges
-            : ImmutableSet.<String> of());
+            : ImmutableSet.<String> of(), TreeRangeSet.<Integer>create());
    }
 
    /**

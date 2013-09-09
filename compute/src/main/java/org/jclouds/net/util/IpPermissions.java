@@ -24,6 +24,7 @@ import org.jclouds.net.domain.IpProtocol;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeRangeSet;
 
 /**
  * 
@@ -34,9 +35,10 @@ import com.google.common.collect.Multimap;
 public class IpPermissions extends IpPermission {
 
    protected IpPermissions(IpProtocol ipProtocol, int fromPort, int toPort,
-         Multimap<String, String> tenantIdGroupPairs, Iterable<String> groupIds, Iterable<String> cidrBlocks) {
+         Multimap<String, String> tenantIdGroupPairs, Iterable<String> groupIds, Iterable<String> cidrBlocks,
+         Iterable<Integer> ports) {
       super(ipProtocol, fromPort, toPort, tenantIdGroupPairs, groupIds, tenantIdGroupPairs.size() == 0 ? cidrBlocks
-            : ImmutableSet.<String> of());
+              : ImmutableSet.<String> of(), TreeRangeSet.<Integer>create());
    }
 
    public static ICMPTypeSelection permitICMP() {
@@ -107,7 +109,7 @@ public class IpPermissions extends IpPermission {
 
       protected ToGroupSourceSelection(IpProtocol ipProtocol, int fromPort, int toPort) {
          super(ipProtocol, fromPort, toPort, ImmutableMultimap.<String, String> of(), ImmutableSet.<String> of(),
-               ImmutableSet.of("0.0.0.0/0"));
+               ImmutableSet.of("0.0.0.0/0"), ImmutableSet.<Integer> of());
       }
 
       public IpPermissions originatingFromSecurityGroupId(String groupId) {
@@ -116,7 +118,7 @@ public class IpPermissions extends IpPermission {
 
       public IpPermissions originatingFromSecurityGroupIds(Iterable<String> groupIds) {
          return new IpPermissions(getIpProtocol(), getFromPort(), getToPort(), getTenantIdGroupNamePairs(), groupIds,
-               ImmutableSet.<String> of());
+               ImmutableSet.<String> of(), ImmutableSet.<Integer> of());
       }
    }
 
@@ -131,17 +133,18 @@ public class IpPermissions extends IpPermission {
 
       public IpPermissions originatingFromCidrBlocks(Iterable<String> cidrIps) {
          return new IpPermissions(getIpProtocol(), getFromPort(), getToPort(),
-               ImmutableMultimap.<String, String> of(), ImmutableSet.<String> of(), cidrIps);
+                 ImmutableMultimap.<String, String> of(), ImmutableSet.<String> of(), cidrIps,
+                 ImmutableSet.<Integer> of());
       }
 
       public IpPermissions originatingFromTenantAndSecurityGroup(String tenantId, String groupName) {
          return toTenantsGroupsNamed(ImmutableMultimap.of(checkNotNull(tenantId, "tenantId"),
-               checkNotNull(groupName, "groupName")));
+                 checkNotNull(groupName, "groupName")));
       }
 
       public IpPermissions toTenantsGroupsNamed(Multimap<String, String> tenantIdGroupNamePairs) {
          return new IpPermissions(getIpProtocol(), getFromPort(), getToPort(), tenantIdGroupNamePairs, getGroupIds(),
-               ImmutableSet.<String> of());
+                 ImmutableSet.<String> of(), ImmutableSet.<Integer> of());
       }
    }
 }

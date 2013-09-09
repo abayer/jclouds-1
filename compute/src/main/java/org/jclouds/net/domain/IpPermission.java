@@ -19,7 +19,10 @@ package org.jclouds.net.domain;
 import static com.google.common.base.Objects.equal;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.collect.Iterables.transform;
+import static com.google.common.collect.Range.closed;
+import static com.google.common.collect.Range.singleton;
 import static org.jclouds.util.Strings2.isCidrFormat;
 
 import java.util.Set;
@@ -29,11 +32,14 @@ import com.google.common.base.Function;
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;
 import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableRangeSet;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.RangeSet;
 import com.google.common.collect.Sets;
+import com.google.common.collect.TreeRangeSet;
 
 /**
  * Ingress access to a destination protocol on particular ports by source, which could be an ip
@@ -53,6 +59,7 @@ public class IpPermission implements Comparable<IpPermission> {
       private IpProtocol ipProtocol;
       private int fromPort;
       private int toPort;
+      private RangeSet<Integer> ports = TreeRangeSet.create();
       private Multimap<String, String> tenantIdGroupNamePairs = LinkedHashMultimap.create();
       private Set<String> groupIds = Sets.newLinkedHashSet();
       private Set<String> cidrBlocks = Sets.newLinkedHashSet();
@@ -113,16 +120,37 @@ public class IpPermission implements Comparable<IpPermission> {
        * @see IpPermission#getCidrBlocks()
        */
       public Builder cidrBlocks(Iterable<String> cidrBlocks) {
-         Iterables.addAll(this.cidrBlocks, transform(cidrBlocks,
-                                                     new Function<String, String>() {
-                                                        @Override
-                                                        public String apply(String input) {
-                                                           checkArgument(isCidrFormat(input),
-                                                                         "input %s is not a valid CIDR",
-                                                                         input);
-                                                           return input;
-                                                        }
-                                                     }));
+         for (String cidrBlock : cidrBlocks) {
+            checkArgument(isCidrFormat(cidrBlock), "%s is not a valid CIDR", cidrBlock);
+         }
+         Iterables.addAll(this.cidrBlocks, cidrBlocks);
+         return this;
+      }
+
+      /**
+       * @see IpPermission#getPorts()
+       */
+      public Builder addPort(Integer port) {
+         this.ports.add(singleton(checkNotNull(port, "port")));
+         return this;
+      }
+
+      /**
+       * @see IpPermission#getPorts()
+       */
+      public Builder addPortRange(Integer start, Integer end) {
+         checkArgument(checkNotNull(start, "start") < checkNotNull(end, "end"),
+                 "start of range must be lower than end of range but was [%d, %d]", start, end);
+         this.ports.add(closed(start, end));
+         return this;
+      }
+
+      /**
+       * @see IpPermission#getPorts()
+       */
+      public Builder ports(RangeSet<Integer> ports) {
+         this.ports = TreeRangeSet.create();
+         this.ports.addAll(ports);
          return this;
       }
 
@@ -143,7 +171,7 @@ public class IpPermission implements Comparable<IpPermission> {
       }
 
       public IpPermission build() {
-         return new IpPermission(ipProtocol, fromPort, toPort, tenantIdGroupNamePairs, groupIds, cidrBlocks);
+         return new IpPermission(ipProtocol, fromPort, toPort, tenantIdGroupNamePairs, groupIds, cidrBlocks, ports);
       }
    }
 
@@ -153,9 +181,18 @@ public class IpPermission implements Comparable<IpPermission> {
    private final Set<String> groupIds;
    private final IpProtocol ipProtocol;
    private final Set<String> cidrBlocks;
+   private final RangeSet<Integer> ports;
 
    public IpPermission(IpProtocol ipProtocol, int fromPort, int toPort,
-            Multimap<String, String> tenantIdGroupNamePairs, Iterable<String> groupIds, Iterable<String> cidrBlocks) {
+                       Multimap<String, String> tenantIdGroupNamePairs, Iterable<String> groupIds,
+                       Iterable<String> cidrBlocks) {
+      this(ipProtocol, fromPort, toPort, tenantIdGroupNamePairs, groupIds, cidrBlocks,
+              TreeRangeSet.<Integer>create());
+   }
+
+   public IpPermission(IpProtocol ipProtocol, int fromPort, int toPort,
+            Multimap<String, String> tenantIdGroupNamePairs, Iterable<String> groupIds,
+            Iterable<String> cidrBlocks, RangeSet<Integer> ports) {
       this.fromPort = fromPort;
       this.toPort = toPort;
       this.tenantIdGroupNamePairs = ImmutableMultimap.copyOf(checkNotNull(tenantIdGroupNamePairs,
@@ -163,6 +200,7 @@ public class IpPermission implements Comparable<IpPermission> {
       this.ipProtocol = checkNotNull(ipProtocol, "ipProtocol");
       this.groupIds = ImmutableSet.copyOf(checkNotNull(groupIds, "groupIds"));
       this.cidrBlocks = ImmutableSet.copyOf(checkNotNull(cidrBlocks, "cidrBlocks"));
+      this.ports = ImmutableRangeSet.copyOf(checkNotNull(ports, "ports"));
    }
 
    /**
@@ -216,6 +254,18 @@ public class IpPermission implements Comparable<IpPermission> {
       return cidrBlocks;
    }
 
+   /**
+    * Each entry must be either an integer or a range. If not specified, connections through any port are allowed.
+    * Example inputs include: ["22"], ["80,"443"], and ["12345-12349"].
+    * <p/>
+    * It is an error to specify this for any protocol that isn't UDP or TCP.
+    *
+    * @return A RangeSet covering ports which are allowed. Can be null.
+    */
+   public RangeSet<Integer> getPorts() {
+      return ports;
+   }
+
    @Override
    public boolean equals(Object o) {
       if (this == o)
@@ -225,13 +275,14 @@ public class IpPermission implements Comparable<IpPermission> {
          return false;
       IpPermission that = IpPermission.class.cast(o);
       return equal(this.ipProtocol, that.ipProtocol) && equal(this.fromPort, that.fromPort)
-               && equal(this.toPort, that.toPort) && equal(this.tenantIdGroupNamePairs, that.tenantIdGroupNamePairs)
-               && equal(this.groupIds, that.groupIds) && equal(this.cidrBlocks, that.cidrBlocks);
+              && equal(this.toPort, that.toPort) && equal(this.tenantIdGroupNamePairs, that.tenantIdGroupNamePairs)
+              && equal(this.groupIds, that.groupIds) && equal(this.cidrBlocks, that.cidrBlocks)
+              && equal(this.ports, that.ports);
    }
 
    @Override
    public int hashCode() {
-      return Objects.hashCode(ipProtocol, fromPort, toPort, tenantIdGroupNamePairs, groupIds, cidrBlocks);
+      return Objects.hashCode(ipProtocol, fromPort, toPort, tenantIdGroupNamePairs, groupIds, cidrBlocks, ports);
    }
 
    @Override
@@ -241,8 +292,8 @@ public class IpPermission implements Comparable<IpPermission> {
 
    protected ToStringHelper string() {
       return Objects.toStringHelper("").add("ipProtocol", ipProtocol).add("fromPort", fromPort).add("toPort", toPort)
-               .add("tenantIdGroupNamePairs", tenantIdGroupNamePairs).add("groupIds", groupIds).add("cidrBlocks",
-                        cidrBlocks);
+              .add("tenantIdGroupNamePairs", tenantIdGroupNamePairs).add("groupIds", groupIds)
+              .add("cidrBlocks", cidrBlocks).add("ports", ports);
    }
 
 }
