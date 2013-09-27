@@ -18,6 +18,7 @@ package org.jclouds.trmk.ecloud;
 
 import static com.google.common.util.concurrent.MoreExecutors.sameThreadExecutor;
 import static org.jclouds.Constants.PROPERTY_MAX_RETRIES;
+import static org.jclouds.reflect.Reflection2.typeToken;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
@@ -27,7 +28,10 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import org.jclouds.ContextBuilder;
+import org.jclouds.View;
+import org.jclouds.compute.ComputeServiceContext;
 import org.jclouds.concurrent.config.ExecutorServiceModule;
+import org.jclouds.trmk.vcloud_0_8.TerremarkVCloudApi;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableSet;
@@ -59,6 +63,14 @@ public class TerremarkECloudClientMockTest {
    }
 
    String versionXML = "<SupportedVersions><VersionInfo><Version>0.8b-ext2.8</Version><LoginUrl>URLv0.8/login</LoginUrl></VersionInfo></SupportedVersions>";
+
+   @Test
+   public void testAssignability() {
+      View view = ContextBuilder.newBuilder(new TerremarkECloudProviderMetadata()).credentials("foo", "bar")
+              .buildView(typeToken(ComputeServiceContext.class));
+      view.unwrapApi(TerremarkVCloudApi.class);
+      view.unwrapApi(TerremarkECloudApi.class);
+   }
 
    @Test
    public void testLoginSetsContentLength() throws IOException, InterruptedException {
