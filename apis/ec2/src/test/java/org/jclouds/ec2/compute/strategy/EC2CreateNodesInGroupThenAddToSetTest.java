@@ -16,32 +16,19 @@
  */
 package org.jclouds.ec2.compute.strategy;
 
-import static org.easymock.EasyMock.createMock;
-import static org.easymock.EasyMock.eq;
-import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.replay;
-import static org.easymock.EasyMock.reportMatcher;
-import static org.easymock.EasyMock.verify;
-
-import java.util.Map;
-import java.util.Set;
-
+import com.google.common.base.Optional;
+import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Multimap;
 import org.easymock.IArgumentMatcher;
 import org.jclouds.compute.config.CustomizationResponse;
-import org.jclouds.compute.domain.Hardware;
-import org.jclouds.compute.domain.Image;
-import org.jclouds.compute.domain.NodeMetadata;
+import org.jclouds.compute.domain.*;
 import org.jclouds.compute.domain.NodeMetadata.Status;
-import org.jclouds.compute.domain.NodeMetadataBuilder;
-import org.jclouds.compute.domain.Template;
 import org.jclouds.compute.predicates.AtomicNodeRunning;
 import org.jclouds.compute.strategy.GetNodeMetadataStrategy;
 import org.jclouds.compute.util.ComputeUtils;
-import org.jclouds.domain.Credentials;
-import org.jclouds.domain.Location;
-import org.jclouds.domain.LocationBuilder;
-import org.jclouds.domain.LocationScope;
-import org.jclouds.domain.LoginCredentials;
+import org.jclouds.domain.*;
 import org.jclouds.ec2.EC2Api;
 import org.jclouds.ec2.compute.domain.RegionAndName;
 import org.jclouds.ec2.compute.functions.PresentInstances;
@@ -49,17 +36,16 @@ import org.jclouds.ec2.compute.functions.RunningInstanceToNodeMetadata;
 import org.jclouds.ec2.compute.options.EC2TemplateOptions;
 import org.jclouds.ec2.domain.Reservation;
 import org.jclouds.ec2.domain.RunningInstance;
-import org.jclouds.ec2.options.RunInstancesOptions;
 import org.jclouds.ec2.features.ElasticIPAddressApi;
 import org.jclouds.ec2.features.InstanceApi;
+import org.jclouds.ec2.options.RunInstancesOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.google.common.base.Optional;
-import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Multimap;
+import java.util.Map;
+import java.util.Set;
+
+import static org.easymock.EasyMock.*;
 
 /**
  * @author Adrian Cole
@@ -124,6 +110,7 @@ public class EC2CreateNodesInGroupThenAddToSetTest {
       expect(input.options.getLoginPassword()).andReturn(null);
       expect(input.options.getLoginPrivateKey()).andReturn(null);
       expect(input.options.shouldAuthenticateSudo()).andReturn(null);
+      expect(input.options.getMaxCount()).andReturn(0);
 
       expect(
             strategy.utils.customizeNodesAndAddToGoodMapOrPutExceptionIntoBadMap(eq(input.options),
@@ -222,7 +209,7 @@ public class EC2CreateNodesInGroupThenAddToSetTest {
       expect(input.options.getLoginPassword()).andReturn(null);
       expect(input.options.getLoginPrivateKey()).andReturn(null);
       expect(input.options.shouldAuthenticateSudo()).andReturn(null);
-
+      expect(input.options.getMaxCount()).andReturn(0);
 
       expect(strategy.runningInstanceToNodeMetadata.apply(instance)).andReturn(nodeMetadata);
       expect(

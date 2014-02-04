@@ -82,6 +82,8 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
             eTo.noKeyPair();
          if (getUserData() != null)
             eTo.userData(getUserData());
+         if (getMaxCount() != 0)
+            eTo.maxCount(getMaxCount());
       }
    }
 
@@ -90,6 +92,7 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
    private boolean noKeyPair;
    private List<Byte> userData;
    private ImmutableSet.Builder<BlockDeviceMapping> blockDeviceMappings = ImmutableSet.builder();
+   private Integer maxCount;
 
    @Override
    public boolean equals(Object o) {
@@ -99,8 +102,9 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
          return false;
       EC2TemplateOptions that = EC2TemplateOptions.class.cast(o);
       return super.equals(that) && equal(this.groupNames, that.groupNames) && equal(this.keyPair, that.keyPair)
-               && equal(this.noKeyPair, that.noKeyPair) && equal(this.userData, that.userData)
-               && equal(this.blockDeviceMappings, that.blockDeviceMappings);
+              && equal(this.noKeyPair, that.noKeyPair) && equal(this.userData, that.userData)
+              && equal(this.blockDeviceMappings, that.blockDeviceMappings)
+              && equal(this.maxCount, that.maxCount);
    }
 
    @Override
@@ -122,6 +126,8 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
       ImmutableSet<BlockDeviceMapping> mappings = blockDeviceMappings.build();
       if (mappings.size() != 0)
          toString.add("blockDeviceMappings", mappings);
+      if (maxCount != null)
+         toString.add("maxCount", maxCount);
       return toString;
    }
 
@@ -197,6 +203,11 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
 
    public EC2TemplateOptions blockDeviceMappings(Iterable<? extends BlockDeviceMapping> blockDeviceMappings) {
       this.blockDeviceMappings.addAll(checkNotNull(blockDeviceMappings, "blockDeviceMappings"));
+      return this;
+   }
+
+   public EC2TemplateOptions maxCount(Integer maxCount) {
+      this.maxCount = maxCount;
       return this;
    }
 
@@ -403,6 +414,11 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
       public static EC2TemplateOptions blockOnComplete(boolean value) {
          EC2TemplateOptions options = new EC2TemplateOptions();
          return options.blockOnComplete(value);
+      }
+
+      public static EC2TemplateOptions maxCount(Integer maxCount) {
+         EC2TemplateOptions options = new EC2TemplateOptions();
+         return options.maxCount(maxCount);
       }
    }
 
@@ -619,6 +635,13 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
     */
    public Set<BlockDeviceMapping> getBlockDeviceMappings() {
       return blockDeviceMappings.build();
+   }
+
+   /**
+    * @return the maximum number of instances to create
+    */
+   public int getMaxCount() {
+      return maxCount != null ? maxCount.intValue() : 0;
    }
 
 }
