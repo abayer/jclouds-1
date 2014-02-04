@@ -24,6 +24,7 @@ import java.io.IOException;
 
 import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.*;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNull;
 
 /**
  * Tests possible uses of EC2TemplateOptions and EC2TemplateOptions.Builder.*
@@ -290,5 +291,24 @@ public class EC2TemplateOptionsTest {
       EC2TemplateOptions options = new EC2TemplateOptions();
       options.maxCount(2);
       assertEquals(options.getMaxCount(), 2);
+   }
+
+   @Test
+   public void testClientTokenDefault() {
+      EC2TemplateOptions options = new EC2TemplateOptions();
+      assertNull(options.getClientToken());
+   }
+
+   @Test
+   public void testClientToken() {
+      EC2TemplateOptions options = new EC2TemplateOptions();
+      options.clientToken("some-token");
+      assertEquals(options.getClientToken(), "some-token");
+   }
+
+   @Test(expectedExceptions = NullPointerException.class)
+   public void testClientTokenNPE() {
+      EC2TemplateOptions options = new EC2TemplateOptions();
+      options.clientToken(null);
    }
 }
