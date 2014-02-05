@@ -16,15 +16,22 @@
  */
 package org.jclouds.ec2.options;
 
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.asType;
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.withBlockDeviceMappings;
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.withClientToken;
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.withKernelId;
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.withKeyName;
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.withRamdisk;
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.withSecurityGroup;
+import static org.jclouds.ec2.options.RunInstancesOptions.Builder.withUserData;
+import static org.testng.Assert.assertEquals;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.jclouds.ec2.domain.BlockDeviceMapping;
 import org.jclouds.ec2.domain.InstanceType;
 import org.jclouds.http.options.HttpRequestOptions;
 import org.testng.annotations.Test;
-
-import static org.jclouds.ec2.options.RunInstancesOptions.Builder.*;
-import static org.testng.Assert.assertEquals;
 
 /**
  * Tests possible uses of RunInstancesOptions and RunInstancesOptions.Builder.*
