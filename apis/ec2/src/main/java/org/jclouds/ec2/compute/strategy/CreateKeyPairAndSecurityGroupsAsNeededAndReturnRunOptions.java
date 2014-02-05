@@ -16,6 +16,18 @@
  */
 package org.jclouds.ec2.compute.strategy;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
+import static org.jclouds.ssh.SshKeys.fingerprintPrivateKey;
+import static org.jclouds.ssh.SshKeys.sha1PrivateKey;
+
+import javax.inject.Named;
+import javax.inject.Provider;
+import javax.inject.Singleton;
+import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
+
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Function;
 import com.google.common.cache.LoadingCache;
@@ -33,16 +45,6 @@ import org.jclouds.ec2.domain.BlockDeviceMapping;
 import org.jclouds.ec2.domain.KeyPair;
 import org.jclouds.ec2.options.RunInstancesOptions;
 import org.jclouds.javax.annotation.Nullable;
-
-import javax.inject.Named;
-import javax.inject.Provider;
-import javax.inject.Singleton;
-import java.util.Set;
-import java.util.concurrent.ConcurrentMap;
-
-import static com.google.common.base.Preconditions.*;
-import static org.jclouds.ssh.SshKeys.fingerprintPrivateKey;
-import static org.jclouds.ssh.SshKeys.sha1PrivateKey;
 
 /**
  * 

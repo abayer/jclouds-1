@@ -16,16 +16,16 @@
  */
 package org.jclouds.ec2.compute.internal;
 
+import static org.jclouds.location.reference.LocationConstants.PROPERTY_REGIONS;
+
+import javax.ws.rs.core.MediaType;
+import java.util.Properties;
+
 import org.jclouds.compute.ComputeService;
 import org.jclouds.compute.ComputeServiceContext;
 import org.jclouds.http.HttpRequest;
 import org.jclouds.http.HttpResponse;
 import org.testng.annotations.BeforeClass;
-
-import javax.ws.rs.core.MediaType;
-import java.util.Properties;
-
-import static org.jclouds.location.reference.LocationConstants.PROPERTY_REGIONS;
 
 public abstract class BaseEC2ComputeServiceExpectTest extends BaseEC2ComputeServiceContextExpectTest<ComputeService> {
    protected String region;

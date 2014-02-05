@@ -16,6 +16,16 @@
  */
 package org.jclouds.ec2.compute.options;
 
+import static com.google.common.base.Objects.equal;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
+import static com.google.common.base.Strings.emptyToNull;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;
 import com.google.common.collect.ImmutableSet;
@@ -31,16 +41,6 @@ import org.jclouds.ec2.domain.BlockDeviceMapping.MapNewVolumeToDevice;
 import org.jclouds.ec2.domain.BlockDeviceMapping.UnmapDeviceNamed;
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.scriptbuilder.domain.Statement;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import static com.google.common.base.Objects.equal;
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.base.Preconditions.checkState;
-import static com.google.common.base.Strings.emptyToNull;
 
 /**
  * Contains options supported in the {@code ComputeService#runNode} operation on
@@ -82,7 +82,7 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
             eTo.noKeyPair();
          if (getUserData() != null)
             eTo.userData(getUserData());
-         if (getMaxCount() != 0)
+         if (getMaxCount() > 0)
             eTo.maxCount(getMaxCount());
          if (getClientToken() != null)
             eTo.clientToken(getClientToken());
@@ -131,7 +131,7 @@ public class EC2TemplateOptions extends TemplateOptions implements Cloneable {
       ImmutableSet<BlockDeviceMapping> mappings = blockDeviceMappings.build();
       if (mappings.size() != 0)
          toString.add("blockDeviceMappings", mappings);
-      if (maxCount != null)
+      if (maxCount != null && maxCount.intValue() > 0)
          toString.add("maxCount", maxCount);
       if (clientToken != null)
          toString.add("clientToken", clientToken);

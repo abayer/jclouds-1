@@ -16,15 +16,21 @@
  */
 package org.jclouds.ec2.compute.options;
 
-import com.google.common.collect.ImmutableSet;
-import org.jclouds.compute.options.TemplateOptions;
-import org.testng.annotations.Test;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.authorizePublicKey;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.blockOnPort;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.inboundPorts;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.installPrivateKey;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.keyPair;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.noKeyPair;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.securityGroups;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNull;
 
 import java.io.IOException;
 
-import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.*;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNull;
+import com.google.common.collect.ImmutableSet;
+import org.jclouds.compute.options.TemplateOptions;
+import org.testng.annotations.Test;
 
 /**
  * Tests possible uses of EC2TemplateOptions and EC2TemplateOptions.Builder.*
@@ -291,6 +297,13 @@ public class EC2TemplateOptionsTest {
       EC2TemplateOptions options = new EC2TemplateOptions();
       options.maxCount(2);
       assertEquals(options.getMaxCount(), 2);
+   }
+
+   @Test
+   public void testMaxCountNull() {
+      EC2TemplateOptions options = new EC2TemplateOptions();
+      options.maxCount(null);
+      assertEquals(options.getMaxCount(), 0);
    }
 
    @Test

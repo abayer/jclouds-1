@@ -16,6 +16,13 @@
  */
 package org.jclouds.ec2.compute;
 
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.blockUntilRunning;
+import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.maxCount;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+
+import javax.ws.rs.core.MediaType;
+
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.ImmutableSet;
@@ -27,13 +34,6 @@ import org.jclouds.http.HttpRequest;
 import org.jclouds.http.HttpResponse;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import javax.ws.rs.core.MediaType;
-
-import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.blockUntilRunning;
-import static org.jclouds.ec2.compute.options.EC2TemplateOptions.Builder.maxCount;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
 
 /**
  * Tests the compute service abstraction of the EC2 api.

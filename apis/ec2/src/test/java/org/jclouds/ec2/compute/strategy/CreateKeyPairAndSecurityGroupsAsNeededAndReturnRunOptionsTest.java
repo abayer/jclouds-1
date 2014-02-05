@@ -16,6 +16,19 @@
  */
 package org.jclouds.ec2.compute.strategy;
 
+import static com.google.common.io.BaseEncoding.base64;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.testng.Assert.assertEquals;
+
+import javax.inject.Provider;
+import java.lang.reflect.Method;
+import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ExecutionException;
+
 import com.google.common.base.Function;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableMultimap;
@@ -35,16 +48,6 @@ import org.jclouds.ec2.domain.KeyPair;
 import org.jclouds.ec2.options.RunInstancesOptions;
 import org.jclouds.scriptbuilder.domain.Statements;
 import org.testng.annotations.Test;
-
-import javax.inject.Provider;
-import java.lang.reflect.Method;
-import java.util.Set;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.ExecutionException;
-
-import static com.google.common.io.BaseEncoding.base64;
-import static org.easymock.EasyMock.*;
-import static org.testng.Assert.assertEquals;
 
 /**
  * @author Adrian Cole
